@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>spring-boot-seed</artifactId>
-        <groupId>com.github.w1lkin</groupId>
+        <groupId>com.welkin</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,11 +13,21 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.w1lkin</groupId>
+            <groupId>com.welkin</groupId>
             <artifactId>spring-boot-seed-common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.welkin</groupId>
+            <artifactId>spring-boot-seed-dao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 </project>

@@ -6,42 +6,38 @@ cxf:
   jaxrs:
     component-scan: true
     classes-scan-packages:
-      com.github.w1lkin.springbootseed.web.api,
-      com.github.w1lkin.springbootseed.web.filter,
+      com.welkin.springbootseed.web.api,
+      com.welkin.springbootseed.web.filter,
       com.fasterxml.jackson.jaxrs.json
 
-#swagger:
-#  enabled: true
-#  resource-package: com.github.springbootseed
-#  base-path: /spring-boot-seed-web/api/v1
-#  title: spring-boot-seed-web Swagger
-#  description: spring-boot-seed-web Swagger Description   @see  SwaggerProperties
+swagger:
+  enabled: true
+  resource-package: com.welkin.springbootseed
+  base-path: /spring-boot-seed-web/api/v1
+  title: spring-boot-seed-web Swagger
+  description: spring-boot-seed-web Swagger Description   @see  SwaggerProperties
 
-#mybatis:
-#  mapperLocations: classpath:/mybatis/mapping/*Mapper.xml
-#  typeAliasesPackage: com.learning.keep.model.*
-#  typeHandlersPackage: com.learning.keep.dao.typeHandler
-#  config-location: classpath:/mybatis-config.xml
-#
-#spring:
-#  datasource:
-#    name: '开发环境数据库'
-#    url: jdbc:mysql://dev.mysql.apitops.com:4308/tops_finance?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
-#    username: finance_dev
-#    password: mFpUowzjKJFfw53qStUx9WUNJWZPh2
-#    type: org.apache.tomcat.jdbc.pool.DataSource #http://wiki.jikexueyuan.com/project/tomcat/tomcat-jdbc-pool.html
-#    driver-class-name: com.mysql.jdbc.Driver
-#    tomcat:
-#      initial-size: 10 #初始化大小
-#      min-idle: 5 #最小
-#      max-active: 10 #最大
-#      max-idle: 10
-#      max-wait: 60000 #配置获取连接等待超时的时间
-#      time-between-eviction-runs-millis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-#      min-evictable-idle-time-millis: 30000 #配置一个连接在池中最小生存的时间，单位是毫秒
-#      validation-query: 'SELECT 1 FROM DUAL'
-#      test-while-idle: true
-#      test-on-borrow: true
-#      test-on-return: true
-#      init-s-q-l: 'set names utf8mb4;'
-#      jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=50) #超过50ms执行的慢查询警告输出
+mybatis.config-location: classpath:mybatis-config.xml
+
+spring:
+  datasource:
+    name: '开发环境数据库'
+    url: jdbc:mysql://dev.mysql.apitops.com:4308/tops_finance?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username: finance_dev
+    password: mFpUowzjKJFfw53qStUx9WUNJWZPh2
+    type: org.apache.tomcat.jdbc.pool.DataSource #http://wiki.jikexueyuan.com/project/tomcat/tomcat-jdbc-pool.html
+    driver-class-name: com.mysql.jdbc.Driver
+    tomcat:
+      initial-size: 10 #初始化大小
+      min-idle: 5 #最小
+      max-active: 10 #最大
+      max-idle: 10
+      max-wait: 60000 #配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 30000 #配置一个连接在池中最小生存的时间，单位是毫秒
+      validation-query: 'SELECT 1 FROM DUAL'
+      mybatis-while-idle: true
+      mybatis-on-borrow: true
+      mybatis-on-return: true
+      init-s-q-l: 'set names utf8mb4;'
+      jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=50) #超过50ms执行的慢查询警告输出

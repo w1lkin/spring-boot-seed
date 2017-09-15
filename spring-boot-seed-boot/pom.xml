@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<artifactId>spring-boot-seed</artifactId>
-		<groupId>com.github.w1lkin</groupId>
+		<groupId>com.welkin</groupId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
@@ -11,6 +11,12 @@
 	<artifactId>spring-boot-seed-boot</artifactId>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.welkin</groupId>
+			<artifactId>spring-boot-seed-web</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -40,11 +46,17 @@
         </dependency>
 
 		<dependency>
-			<groupId>com.github.w1lkin</groupId>
-			<artifactId>spring-boot-seed-web</artifactId>
-			<version>${project.version}</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+		</dependency>
     </dependencies>
 
 	<build>
@@ -54,7 +66,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>${spring.boot.version}</version>
 				<configuration>
-					<mainClass>com.github.w1lkin.springbootseed.boot.Application</mainClass>
+					<mainClass>com.github..springbootseed.mbg.Application</mainClass>
 				</configuration>
 				<executions>
 					<execution>
