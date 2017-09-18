@@ -9,10 +9,6 @@ import org.mybatis.generator.api.dom.xml.XmlElement;
 import java.sql.Types;
 import java.util.List;
 
-/**
- * @author liuxy
- * @Date 2017/4/21
- */
 public class PKGeneratePlugin extends PluginAdapter {
 
     @Override

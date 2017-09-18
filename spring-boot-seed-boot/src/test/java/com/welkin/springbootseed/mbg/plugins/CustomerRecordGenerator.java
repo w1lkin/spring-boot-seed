@@ -16,10 +16,6 @@ import java.util.List;
 import static org.mybatis.generator.internal.util.JavaBeansUtil.*;
 import static org.mybatis.generator.internal.util.messages.Messages.getString;
 
-/**
- * @author liuxy
- * @Date 2017/4/21
- */
 public class CustomerRecordGenerator extends BaseRecordGenerator {
 
 

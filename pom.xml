@@ -31,7 +31,7 @@
 
         <javax.ws.rs.version>2.0.1</javax.ws.rs.version>
         <cxf.version>3.1.10</cxf.version>
-        <jackson.jaxrs.version>2.8.3</jackson.jaxrs.version>
+        <jackson.version>2.8.3</jackson.version>
 
         <fastjson.version>1.2.29</fastjson.version>
 
@@ -46,7 +46,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Spring Boot  BOM -->
+            <!-- Spring Boot BOM -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -78,9 +78,14 @@
 
             <!-- Jackson BOM-->
             <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.fasterxml.jackson.jaxrs</groupId>
                 <artifactId>jackson-jaxrs-json-provider</artifactId>
-                <version>${jackson.jaxrs.version}</version>
+                <version>${jackson.version}</version>
             </dependency>
 
             <!-- Fastjson BOM-->

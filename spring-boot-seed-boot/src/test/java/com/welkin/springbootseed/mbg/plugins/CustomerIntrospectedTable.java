@@ -8,10 +8,6 @@ import org.mybatis.generator.codegen.mybatis3.model.RecordWithBLOBsGenerator;
 
 import java.util.List;
 
-/**
- * @author liuxy
- * @Date 2017/4/21
- */
 public class CustomerIntrospectedTable extends IntrospectedTableMyBatis3Impl {
 
 

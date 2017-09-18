@@ -7,12 +7,12 @@
     </settings>
 
     <typeAliases>
-        <!--<package name="com.tops001.bops.model.common"/>-->
+        <package name="com.welkin.springbootseed.model.order"/>
     </typeAliases>
 
-    <!--<typeHandlers>-->
-        <!--<typeHandler handler="com.tops001.bops.dao.typehandler.DateTypeHandler"/>-->
-    <!--</typeHandlers>-->
+    <typeHandlers>
+        <typeHandler handler="com.welkin.springbootseed.dao.typehandler.DateTypeHandler"/>
+    </typeHandlers>
 
     <plugins>
         <!-- com.github.pagehelper为PageHelper类所在包名 -->
@@ -41,7 +41,8 @@
     </plugins>
 
     <mappers>
-        <!-- finance-->
-        <!--<mapper resource="com/tops001/bops/dao/finance/FactoringProductUserRelationMapper.xml"/>-->
+        <!-- order-->
+        <mapper resource="com/welkin/springbootseed/dao/order/OrderMapper.xml"/>
     </mappers>
+
 </configuration>

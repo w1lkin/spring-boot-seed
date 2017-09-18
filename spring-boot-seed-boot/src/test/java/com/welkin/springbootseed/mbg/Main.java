@@ -16,9 +16,9 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         GeneratorConfig generatorConfig = new GeneratorConfig("C:\\Program\\mbg\\mysql-connector-java-5.1.38.jar", "C:\\Program\\mbg",
-                "com.github..springbootseed.model.order", "src\\main\\java",
-                "com.github..springbootseed.dao.order", "src\\main\\java",
-                "com.github..springbootseed.dao.order", "src\\main\\resources");
+                "com.welkin.springbootseed.model.order", "src\\main\\java",
+                "com.welkin.springbootseed.dao.order", "src\\main\\java",
+                "com.welkin.springbootseed.dao.order", "src\\main\\resources");
         //
         DatabaseConfig databaseConfig = new DatabaseConfig("jdbc:mysql://dev.mysql.apitops.com:4308/tops_finance?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull",
                 "finance_dev", "mFpUowzjKJFfw53qStUx9WUNJWZPh2");

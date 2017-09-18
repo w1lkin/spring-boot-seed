@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.welkin.springbootseed.dao.order.OrderDao">
+  <resultMap id="BaseResultMap" type="com.welkin.springbootseed.model.order.Order">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="order_center_no" jdbcType="BIGINT" property="orderCenterNo" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="process_instance_id" jdbcType="VARCHAR" property="processInstanceId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="close_time" jdbcType="TIMESTAMP" property="closeTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="entry_time" jdbcType="TIMESTAMP" property="entryTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
+    <result column="import_flag" jdbcType="TINYINT" property="importFlag" />
+    <result column="import_no" jdbcType="VARCHAR" property="importNo" />
+    <result column="fund_type" jdbcType="TINYINT" property="fundType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, city_id, order_center_no, order_no, customer_id, product_id, process_instance_id, 
+    status, close_time, is_deleted, create_time, update_time, entry_time, sys_time, delete_time, 
+    import_flag, import_no, fund_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tfs_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.welkin.springbootseed.model.order.Order" useGeneratedKeys="true">
+    insert into tfs_order (id, city_id, order_center_no, 
+      order_no, customer_id, product_id, 
+      process_instance_id, status, close_time, 
+      is_deleted, create_time, update_time, 
+      entry_time, sys_time, delete_time, 
+      import_flag, import_no, fund_type
+      )
+    values (#{id,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{orderCenterNo,jdbcType=BIGINT}, 
+      #{orderNo,jdbcType=VARCHAR}, #{customerId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
+      #{processInstanceId,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{closeTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{entryTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, 
+      #{importFlag,jdbcType=TINYINT}, #{importNo,jdbcType=VARCHAR}, #{fundType,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.welkin.springbootseed.model.order.Order" useGeneratedKeys="true">
+    insert into tfs_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="orderCenterNo != null">
+        order_center_no,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="processInstanceId != null">
+        process_instance_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="closeTime != null">
+        close_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="entryTime != null">
+        entry_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+      <if test="deleteTime != null">
+        delete_time,
+      </if>
+      <if test="importFlag != null">
+        import_flag,
+      </if>
+      <if test="importNo != null">
+        import_no,
+      </if>
+      <if test="fundType != null">
+        fund_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="orderCenterNo != null">
+        #{orderCenterNo,jdbcType=BIGINT},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="processInstanceId != null">
+        #{processInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="closeTime != null">
+        #{closeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="entryTime != null">
+        #{entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null">
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="importFlag != null">
+        #{importFlag,jdbcType=TINYINT},
+      </if>
+      <if test="importNo != null">
+        #{importNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fundType != null">
+        #{fundType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.welkin.springbootseed.model.order.Order">
+    update tfs_order
+    <set>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="orderCenterNo != null">
+        order_center_no = #{orderCenterNo,jdbcType=BIGINT},
+      </if>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="processInstanceId != null">
+        process_instance_id = #{processInstanceId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="closeTime != null">
+        close_time = #{closeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="entryTime != null">
+        entry_time = #{entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null">
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="importFlag != null">
+        import_flag = #{importFlag,jdbcType=TINYINT},
+      </if>
+      <if test="importNo != null">
+        import_no = #{importNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fundType != null">
+        fund_type = #{fundType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.welkin.springbootseed.model.order.Order">
+    update tfs_order
+    set city_id = #{cityId,jdbcType=INTEGER},
+      order_center_no = #{orderCenterNo,jdbcType=BIGINT},
+      order_no = #{orderNo,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER},
+      process_instance_id = #{processInstanceId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      close_time = #{closeTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      entry_time = #{entryTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      import_flag = #{importFlag,jdbcType=TINYINT},
+      import_no = #{importNo,jdbcType=VARCHAR},
+      fund_type = #{fundType,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

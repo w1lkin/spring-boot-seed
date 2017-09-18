@@ -120,11 +120,11 @@ public class MybatisGeneratorBridge {
 
         //pk 自动返回
         PluginConfiguration pkPluginConfiguration = new PluginConfiguration();
-        pkPluginConfiguration.addProperty("type", "package com.welkin.springbootseed.mbg.plugins.PKGeneratePlugin");
-        pkPluginConfiguration.setConfigurationType("package com.welkin.springbootseed.mbg.plugins.PKGeneratePlugin");
+        pkPluginConfiguration.addProperty("type", "com.welkin.springbootseed.mbg.plugins.PKGeneratePlugin");
+        pkPluginConfiguration.setConfigurationType("com.welkin.springbootseed.mbg.plugins.PKGeneratePlugin");
         context.addPluginConfiguration(pkPluginConfiguration);
 
-        context.setTargetRuntime("package com.welkin.springbootseed.mbg.plugins.CustomerIntrospectedTable");
+        context.setTargetRuntime("com.welkin.springbootseed.mbg.plugins.CustomerIntrospectedTable");
 
         return context;
     }
