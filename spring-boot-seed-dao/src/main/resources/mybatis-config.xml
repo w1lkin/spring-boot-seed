@@ -43,6 +43,12 @@
     <mappers>
         <!-- order-->
         <mapper resource="com/welkin/springbootseed/dao/order/OrderMapper.xml"/>
+
+
+        <!-- custom -->
+        <!-- order -->
+        <mapper resource="com/welkin/springbootseed/dao/order/CustomOrderMapper.xml"/>
+
     </mappers>
 
 </configuration>

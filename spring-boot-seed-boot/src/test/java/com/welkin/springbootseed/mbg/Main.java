@@ -24,7 +24,7 @@ public class Main {
                 "finance_dev", "mFpUowzjKJFfw53qStUx9WUNJWZPh2");
         //
         List<Table> list = new ArrayList<>();
-        list.add(new Table("tfs_order","Order"));
+        list.add(new Table("tfs_risk_person_info_history","RiskPersonInfoHistory"));
         //list.add(new Table("fin_factoring_detail", "FactoringDetail"));
 
         //

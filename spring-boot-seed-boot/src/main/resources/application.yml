@@ -17,7 +17,7 @@ swagger:
   title: spring-boot-seed-web Swagger
   description: spring-boot-seed-web Swagger Description   @see  SwaggerProperties
 
-mybatis.config-location: classpath:mybatis-config.xml
+mybatis.config-location: classpath:/mybatis-config.xml
 
 spring:
   datasource:

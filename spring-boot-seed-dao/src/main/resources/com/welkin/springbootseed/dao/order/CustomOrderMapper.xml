@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.welkin.springbootseed.dao.order.CustomOrderDao">
+
+  <resultMap id="BaseResultMap" type="com.welkin.springbootseed.model.order.Order"
+  extends="com.welkin.springbootseed.dao.order.OrderDao.BaseResultMap">
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, city_id, order_center_no, order_no, customer_id, product_id, process_instance_id, 
+    status, close_time, is_deleted, create_time, update_time, entry_time, sys_time, delete_time, 
+    import_flag, import_no, fund_type
+  </sql>
+
+  <delete id="removeByOrderId" parameterType="java.lang.Integer">
+    delete from tfs_order
+    where id = #{orderId,jdbcType=INTEGER}
+  </delete>
+
+</mapper>

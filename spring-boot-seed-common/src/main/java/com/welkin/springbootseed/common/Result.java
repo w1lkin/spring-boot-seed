@@ -6,93 +6,88 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 public class Result<T> implements Serializable {
 
-    @JsonProperty("Code")
-    private int code = ApiResponseCode.SUCCESS.get();
+  @JsonProperty("Code")
+  private int code = ApiResponseCode.SUCCESS.get();
 
-    @JsonProperty("Message")
-    private String message;
+  @JsonProperty("Message")
+  private String message;
 
-    @JsonProperty("Data")
-    private T data;
+  @JsonProperty("Data")
+  private T data;
 
-    @JsonProperty("ServerTime")
-    private String serverTime;
+  @JsonProperty("ServerTime")
+  private String serverTime;
 
-    private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+  private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public String getServerTime() {
-        return this.serverTime;
-    }
+  public Result() {}
 
-    public void setServerTime(String serverTime) {
-        this.serverTime = serverTime;
-    }
+  public Result(ApiResponseCode code) {
+    this(code.get(), code.getName());
+  }
 
+  public Result(int code, String message) {
+    this(code, message, null);
+  }
 
-    public Result() {
-    }
+  public Result(ApiResponseCode code, T data) {
+    this(code.get(), code.getName(), data);
+  }
 
-    public Result(ApiResponseCode code) {
-        this(code.get(), code.getName());
-    }
+  public Result(int code, String message, T data) {
+    this.code = code;
+    this.message = message;
+    this.data = data;
+    setServerTime(df.format(new Date()));
+  }
 
-    public Result(int code, String message) {
-        this(code, message, null);
-    }
+  public static <T> Result<T> createSuccess() {
+    return createSuccess(null);
+  }
 
-    public Result(ApiResponseCode code, T data) {
-        this(code.get(), code.getName(), data);
-    }
+  public static <T> Result<T> createSuccess(T t) {
+    return createSuccess(null, t);
+  }
 
-    public Result(int code, String message, T data) {
-        this.code = code;
-        this.message = message;
-        this.data = data;
-        setServerTime(df.format(new Date()));
-    }
+  public static <T> Result<T> createSuccess(String msg, T t) {
+    return new Result<T>(ApiResponseCode.SUCCESS.get(), msg, t);
+  }
 
-    public static <T> Result<T> createSuccess() {
-        return createSuccess(null);
-    }
+  public static <T> Result<T> createUnknowFail(int code, String msg) {
+    return new Result<T>(code, msg);
+  }
 
-    public static <T> Result<T> createSuccess(T t) {
-        return createSuccess(null, t);
-    }
+  public String getServerTime() {
+    return this.serverTime;
+  }
 
-    public static <T> Result<T> createSuccess(String msg, T t) {
-        return new Result<T>(ApiResponseCode.SUCCESS.get(), msg, t);
-    }
+  public void setServerTime(String serverTime) {
+    this.serverTime = serverTime;
+  }
 
-    public static <T> Result<T> createUnknowFail(int code, String msg) {
-        return new Result<T>(code, msg);
-    }
+  public int getCode() {
+    return code;
+  }
 
+  public void setCode(int code) {
+    this.code = code;
+  }
 
-    public int getCode() {
-        return code;
-    }
+  public String getMessage() {
+    return message;
+  }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-    public String getMessage() {
-        return message;
-    }
+  public T getData() {
+    return data;
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
+  public void setData(T data) {
+    this.data = data;
+  }
 }

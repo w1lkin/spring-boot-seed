@@ -1,12 +1,12 @@
 package com.welkin.springbootseed.web.api.mybatis.model;
 
-import com.welkin.springbootseed.model.Base;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class OrderVo extends Base implements Serializable {
+public class OrderVo implements Serializable {
     @ApiModelProperty("id")
     private Integer id;
 
@@ -32,9 +32,11 @@ public class OrderVo extends Base implements Serializable {
     private Integer status;
 
     @ApiModelProperty("关闭时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date closeTime;
 
     @ApiModelProperty("进件时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date entryTime;
 
     @ApiModelProperty("导入数据标志 0-否 1-是")

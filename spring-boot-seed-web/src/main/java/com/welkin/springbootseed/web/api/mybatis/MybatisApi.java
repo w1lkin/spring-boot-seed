@@ -1,6 +1,7 @@
 package com.welkin.springbootseed.web.api.mybatis;
 
 import com.alibaba.fastjson.JSON;
+import com.welkin.springbootseed.common.exception.BizException;
 import com.welkin.springbootseed.common.util.BeanUtil;
 import com.welkin.springbootseed.model.order.Order;
 import com.welkin.springbootseed.service.order.OrderService;
@@ -11,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -20,11 +22,11 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 @Api(tags = "Mybatis", description = "Mybatis")
 public class MybatisApi {
+  // TODO 参数校验未生效
 
   private static final Logger logger = LogManager.getLogger(MybatisApi.class);
 
-  @Autowired
-  private OrderService orderService;
+  @Autowired private OrderService orderService;
 
   @GET
   @Path("/orders/{orderId}")
@@ -32,10 +34,10 @@ public class MybatisApi {
   public OrderResponse get(@PathParam("orderId") Integer orderId) {
     logger.info("request: " + orderId);
 
-    Order order = orderService.getOrder(orderId);
+    Order order = orderService.get(orderId);
     //
     OrderResponse response = new OrderResponse();
-    BeanUtil.copyProperties(order,response);
+    BeanUtil.copyProperties(order, response);
     //
     logger.info("response: " + JSON.toJSONString(response));
     return response;
@@ -45,32 +47,44 @@ public class MybatisApi {
   @Path("/orders")
   @ApiOperation("搜索订单")
   public SearchOrderResponse search(@BeanParam SearchOrderRequest request) {
-    SearchOrderResponse response=new SearchOrderResponse();
+    SearchOrderResponse response = new SearchOrderResponse();
     return response;
   }
 
   @POST
   @Path("/orders")
   @ApiOperation("创建订单")
-  public CreateOrderResponse create(CreateOrderRequest request){
-    CreateOrderResponse response=new CreateOrderResponse();
+  public CreateOrModifyOrderResponse create(@Valid CreateOrModifyOrderRequest request) {
+    Order order = new Order();
+    BeanUtil.copyProperties(request, order);
+    orderService.save(order);
+    //
+    CreateOrModifyOrderResponse response = new CreateOrModifyOrderResponse();
+    response.setId(order.getId());
     return response;
   }
 
   @PUT
   @Path("/orders")
   @ApiOperation("更新订单")
-  public CreateOrderResponse update(CreateOrderRequest request){
-    CreateOrderResponse response=new CreateOrderResponse();
+  public CreateOrModifyOrderResponse update(@Valid CreateOrModifyOrderRequest request) {
+    Integer id = request.getId();
+    BizException.isNull(id);
+    //
+    Order order = new Order();
+    BeanUtil.copyProperties(request, order);
+    orderService.update(order);
+    //
+    CreateOrModifyOrderResponse response = new CreateOrModifyOrderResponse();
+    response.setId(order.getId());
     return response;
   }
 
   @DELETE
   @Path("/orders/{orderId}")
   @ApiOperation("删除订单")
-  public CreateOrderResponse delete(@PathParam("orderId") Integer orderId){
-    CreateOrderResponse response=new CreateOrderResponse();
-    return response;
+  public Boolean delete(@PathParam("orderId") Integer orderId) {
+    orderService.remove(orderId);
+    return true;
   }
-
 }
