@@ -3,7 +3,9 @@ package com.welkin.springbootseed.web.api.mybatis;
 import com.alibaba.fastjson.JSON;
 import com.welkin.springbootseed.common.exception.BizException;
 import com.welkin.springbootseed.common.util.BeanUtil;
+import com.welkin.springbootseed.model.Page;
 import com.welkin.springbootseed.model.order.Order;
+import com.welkin.springbootseed.model.order.dto.SearchOrderCondition;
 import com.welkin.springbootseed.service.order.OrderService;
 import com.welkin.springbootseed.web.api.mybatis.model.*;
 import io.swagger.annotations.Api;
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 /** @author welkin Mybatis */
 @Path("")
@@ -47,7 +50,20 @@ public class MybatisApi {
   @Path("/orders")
   @ApiOperation("搜索订单")
   public SearchOrderResponse search(@BeanParam SearchOrderRequest request) {
-    SearchOrderResponse response = new SearchOrderResponse();
+    //
+    SearchOrderCondition condition=new SearchOrderCondition();
+    BeanUtil.copyProperties(request,condition);
+    if (request.getEntryBeginTime()!=null){
+      condition.setEntryBeginTime(request.getEntryBeginTime().getDate());
+    }
+    if (request.getEntryEndTime()!=null){
+      condition.setEntryEndTime(request.getEntryEndTime().getNextDay());
+    }
+    //
+    Page<Order> page=orderService.findPage(condition);
+    //
+    List<OrderVo> orderVos=BeanUtil.copyList(page.getResults(),OrderVo.class);
+    SearchOrderResponse response = new SearchOrderResponse(page.getTotalCount(),orderVos);
     return response;
   }
 

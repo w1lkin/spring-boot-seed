@@ -1,10 +1,13 @@
 package com.welkin.springbootseed.service.order;
 
+import com.welkin.springbootseed.model.Page;
 import com.welkin.springbootseed.model.order.Order;
-import com.welkin.springbootseed.model.order.SearchOrderCondition;
+import com.welkin.springbootseed.model.order.dto.SearchOrderCondition;
 
-import java.util.List;
-
+/**
+ * @author welkin
+ * 2017年9月28日16:04:53
+ */
 public interface OrderService {
     /**
      * 获取订单
@@ -38,5 +41,5 @@ public interface OrderService {
      * @param condition
      * @return
      */
-    List<Order> findPage(SearchOrderCondition condition);
+    Page<Order> findPage(SearchOrderCondition condition);
 }
