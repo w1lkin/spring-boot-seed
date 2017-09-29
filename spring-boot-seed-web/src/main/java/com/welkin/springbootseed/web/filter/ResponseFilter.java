@@ -36,7 +36,9 @@ public class ResponseFilter implements ContainerResponseFilter {
 
     // except swagger
     String path = requestContext.getUriInfo().getPath();
-    if (path.contains("swagger.json")) return;
+    if (path.contains("swagger.json")) {
+      return;
+    }
 
     Object result = responseContext.getEntity();
     // redirect 重定向 不需要包装Result
