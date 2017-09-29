@@ -49,4 +49,9 @@ public class OrderServiceImpl implements OrderService {
     Page<Order> page=new Page<>(orders);
     return page;
   }
+
+  @Override
+  public List<Order> getList() {
+    return orderDao.selectByCondition(null);
+  }
 }

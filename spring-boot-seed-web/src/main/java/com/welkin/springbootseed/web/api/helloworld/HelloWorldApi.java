@@ -10,7 +10,10 @@ import org.apache.logging.log4j.Logger;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-/** @author welkin HelloWorld */
+/**
+ * HelloWorld
+ * @author welkin
+ **/
 @Path("")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces(MediaType.APPLICATION_JSON+ ";charset=utf-8")

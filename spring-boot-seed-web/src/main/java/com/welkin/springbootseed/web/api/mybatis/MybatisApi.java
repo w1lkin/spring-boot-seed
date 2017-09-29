@@ -19,7 +19,10 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-/** @author welkin Mybatis */
+/**
+ * Mybatis
+ * @author welkin
+ **/
 @Path("")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")

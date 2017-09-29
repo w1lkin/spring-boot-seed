@@ -4,6 +4,8 @@ import com.welkin.springbootseed.model.Page;
 import com.welkin.springbootseed.model.order.Order;
 import com.welkin.springbootseed.model.order.dto.SearchOrderCondition;
 
+import java.util.List;
+
 /**
  * @author welkin
  * 2017年9月28日16:04:53
@@ -42,4 +44,10 @@ public interface OrderService {
      * @return
      */
     Page<Order> findPage(SearchOrderCondition condition);
+
+    /**
+     * 获取订单列表
+     * @return
+     */
+    List<Order> getList();
 }
