@@ -27,8 +27,10 @@
 
         <spring.boot.version>1.4.1.RELEASE</spring.boot.version>
 
+        <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+
         <swagger.version>1.5.13</swagger.version>
-        <!--<swagger.ui.version>2.2.6</swagger.ui.version>-->
+        <swagger.ui.version>2.2.6</swagger.ui.version>
 
         <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
 
@@ -63,17 +65,24 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- JPA Persistence -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.validator.version}</version>
+            </dependency>
+
             <!-- Swagger BOM -->
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>org.webjars</groupId>-->
-                <!--<artifactId>swagger-ui</artifactId>-->
-                <!--<version>${swagger.ui.version}</version>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>swagger-ui</artifactId>
+                <version>${swagger.ui.version}</version>
+            </dependency>
 
             <!-- Apache Common BOM -->
             <dependency>
@@ -100,11 +109,11 @@
                 <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
                 <version>${cxf.version}</version>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>org.apache.cxf</groupId>-->
-                <!--<artifactId>cxf-rt-rs-service-description-swagger</artifactId>-->
-                <!--<version>${cxf.version}</version>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
 
             <!-- Jackson BOM-->
             <dependency>

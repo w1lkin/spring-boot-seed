@@ -15,11 +15,11 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * File
+ * 文件
  * @author welkin
  */
 @Path("file")
-@Api(tags = "file", description = "file")
+@Api(tags = "文件", description = "文件")
 public class FileApi {
 
   private static final Logger logger = LogManager.getLogger(FileApi.class);

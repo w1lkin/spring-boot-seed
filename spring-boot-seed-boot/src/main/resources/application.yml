@@ -10,12 +10,12 @@ cxf:
       com.welkin.springbootseed.web.filter,
       com.fasterxml.jackson.jaxrs.json
 
-#swagger:
-#  enabled: true
-#  resource-package: com.welkin.springbootseed
-#  base-path: /spring-boot-seed-web/api/v1
-#  title: spring-boot-seed-web Swagger
-#  description: spring-boot-seed-web Swagger Description   @see  SwaggerProperties
+swagger:
+  enabled: true
+  resource-package: com.welkin.springbootseed
+  base-path: /spring-boot-seed-web/api/v1
+  title: spring-boot-seed-web Swagger
+  description: spring-boot-seed-web Swagger Description   @see  SwaggerProperties
 
 mybatis.config-location: classpath:/mybatis-config.xml
 

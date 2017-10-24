@@ -21,13 +21,13 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * Stream
+ * stream API 使用
  * @author welkin
  */
 @Path("stream")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-@Api(tags = "Stream", description = "Stream")
+@Api(tags = "stream API 使用", description = "stream API 使用")
 public class StreamApi {
 
   private static final Logger logger = LogManager.getLogger(StreamApi.class);

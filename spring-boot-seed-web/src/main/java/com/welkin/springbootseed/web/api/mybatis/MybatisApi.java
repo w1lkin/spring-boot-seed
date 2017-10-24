@@ -20,13 +20,13 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * Mybatis
+ * mysql CRUD
  * @author welkin
  **/
 @Path("")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-@Api(tags = "Mybatis", description = "Mybatis")
+@Api(tags = "mysql CRUD", description = "mysql CRUD")
 public class MybatisApi {
   // TODO 参数校验未生效
 

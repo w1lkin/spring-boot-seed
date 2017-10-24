@@ -11,7 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
- * HelloWorld
+ * 你好,世界
  * @author welkin
  **/
 @Path("")
