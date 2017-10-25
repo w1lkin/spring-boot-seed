@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.dao.typehandler;
+package com.welkin.springbootseed.dao.tool;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

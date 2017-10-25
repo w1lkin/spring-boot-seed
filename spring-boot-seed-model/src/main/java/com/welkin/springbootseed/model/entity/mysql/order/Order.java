@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.model.order;
+package com.welkin.springbootseed.model.entity.mysql.order;
 
 import com.welkin.springbootseed.model.Base;
 

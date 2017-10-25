@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.welkin.springbootseed.dao.order.OrderDao">
-  <resultMap id="BaseResultMap" type="com.welkin.springbootseed.model.order.Order">
+<mapper namespace="com.welkin.springbootseed.dao.mysql.mapper.order.OrderDao">
+  <resultMap id="BaseResultMap" type="com.welkin.springbootseed.model.entity.mysql.order.Order">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="city_id" jdbcType="INTEGER" property="cityId" />
     <result column="order_center_no" jdbcType="BIGINT" property="orderCenterNo" />
@@ -32,7 +32,7 @@
     from tfs_order
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.welkin.springbootseed.model.order.Order" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.welkin.springbootseed.model.entity.mysql.order.Order" useGeneratedKeys="true">
     insert into tfs_order (id, city_id, order_center_no, 
       order_no, customer_id, product_id, 
       process_instance_id, status, close_time, 
@@ -48,7 +48,7 @@
       #{importFlag,jdbcType=TINYINT}, #{importNo,jdbcType=VARCHAR}, #{fundType,jdbcType=TINYINT}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.welkin.springbootseed.model.order.Order" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.welkin.springbootseed.model.entity.mysql.order.Order" useGeneratedKeys="true">
     insert into tfs_order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -163,7 +163,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.welkin.springbootseed.model.order.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.welkin.springbootseed.model.entity.mysql.order.Order">
     update tfs_order
     <set>
       <if test="cityId != null">
@@ -220,7 +220,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.welkin.springbootseed.model.order.Order">
+  <update id="updateByPrimaryKey" parameterType="com.welkin.springbootseed.model.entity.mysql.order.Order">
     update tfs_order
     set city_id = #{cityId,jdbcType=INTEGER},
       order_center_no = #{orderCenterNo,jdbcType=BIGINT},

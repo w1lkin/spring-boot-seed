@@ -17,7 +17,11 @@ swagger:
   title: spring-boot-seed-web Swagger
   description: spring-boot-seed-web Swagger Description   @see  SwaggerProperties
 
-mybatis.config-location: classpath:/mybatis-config.xml
+mybatis:
+  mapperLocations: classpath:/mysql/mapper/*Mapper.xml,classpath:/mysql/mapper/*/*Mapper.xml
+  typeAliasesPackage: com.welkin.springbootseed.model.*
+  typeHandlersPackage: com.welkin.springbootseed.dao.tool.typeHandler
+  config-location: classpath:/mybatis-config.xml
 
 spring:
   datasource:

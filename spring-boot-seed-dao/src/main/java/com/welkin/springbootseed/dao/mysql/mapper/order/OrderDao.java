@@ -1,6 +1,6 @@
-package com.welkin.springbootseed.dao.order;
+package com.welkin.springbootseed.dao.mysql.mapper.order;
 
-import com.welkin.springbootseed.model.order.Order;
+import com.welkin.springbootseed.model.entity.mysql.order.Order;
 
 public interface OrderDao {
     int insert(Order record);

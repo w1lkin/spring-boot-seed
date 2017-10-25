@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.model.order.dto;
+package com.welkin.springbootseed.model.dto.order;
 
 
 import com.welkin.springbootseed.model.Page;

@@ -1,8 +1,7 @@
 package com.welkin.springbootseed.web.api.stream.model;
 
-import com.welkin.springbootseed.model.order.Order;
+import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiParam;
 
 import java.io.Serializable;
 import java.util.ArrayList;

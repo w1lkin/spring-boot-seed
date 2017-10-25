@@ -1,6 +1,6 @@
 # spring-boot-seed
 
-> 该项目目的是学习sping-boot, 积累技术。
+> 该项目目的是学习spring-boot, 积累技术。
 
 ### 更新日志
 - 2017年10月24日 集成swagger,hibernate-validator

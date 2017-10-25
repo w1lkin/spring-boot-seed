@@ -1,6 +1,6 @@
 package com.welkin.springbootseed.web.api.stream;
 
-import com.welkin.springbootseed.model.order.Order;
+import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.service.order.OrderService;
 import com.welkin.springbootseed.web.api.stream.model.StreamResponse;
 import io.swagger.annotations.Api;

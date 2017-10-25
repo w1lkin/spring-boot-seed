@@ -1,8 +1,8 @@
 package com.welkin.springbootseed.service.order;
 
 import com.welkin.springbootseed.model.Page;
-import com.welkin.springbootseed.model.order.Order;
-import com.welkin.springbootseed.model.order.dto.SearchOrderCondition;
+import com.welkin.springbootseed.model.entity.mysql.order.Order;
+import com.welkin.springbootseed.model.dto.order.SearchOrderCondition;
 
 import java.util.List;
 
