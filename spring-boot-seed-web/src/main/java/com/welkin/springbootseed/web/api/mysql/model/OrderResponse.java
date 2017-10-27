@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.web.api.mybatis.model;
+package com.welkin.springbootseed.web.api.mysql.model;
 
 import java.io.Serializable;
 

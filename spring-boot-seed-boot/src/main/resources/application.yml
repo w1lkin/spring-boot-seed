@@ -18,7 +18,7 @@ swagger:
   description: spring-boot-seed-web Swagger Description   @see  SwaggerProperties
 
 mybatis:
-  mapperLocations: classpath:/mysql/mapper/*Mapper.xml,classpath:/mysql/mapper/*/*Mapper.xml
+  mapperLocations: classpath:/mybatis/mapper/*Mapper.xml,classpath:/mybatis/mapper/*/*Mapper.xml
   typeAliasesPackage: com.welkin.springbootseed.model.*
   typeHandlersPackage: com.welkin.springbootseed.dao.tool.typeHandler
   config-location: classpath:/mybatis-config.xml
@@ -45,3 +45,6 @@ spring:
       mybatis-on-return: true
       init-s-q-l: 'set names utf8mb4;'
       jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=50) #超过50ms执行的慢查询警告输出
+  data:
+    mongodb:
+      uri: mongodb://kk_tepstechfin:kk_tepstechfin123456@test.mongo.apitops.com:37019/tops_tepstechfin

@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.web.api.mybatis;
+package com.welkin.springbootseed.web.api.mysql;
 
 import com.alibaba.fastjson.JSON;
 import com.welkin.springbootseed.common.exception.BizException;
@@ -7,7 +7,7 @@ import com.welkin.springbootseed.model.Page;
 import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.model.dto.order.SearchOrderCondition;
 import com.welkin.springbootseed.service.order.OrderService;
-import com.welkin.springbootseed.web.api.mybatis.model.*;
+import com.welkin.springbootseed.web.api.mysql.model.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
@@ -20,17 +20,17 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * mysql CRUD
+ * mybatis CRUD
  * @author welkin
  **/
-@Path("")
+@Path("mysql")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 @Api(tags = "mysql CRUD", description = "mysql CRUD")
-public class MybatisApi {
+public class MysqlApi {
   // TODO 参数校验未生效
 
-  private static final Logger logger = LogManager.getLogger(MybatisApi.class);
+  private static final Logger logger = LogManager.getLogger(MysqlApi.class);
 
   @Autowired private OrderService orderService;
 

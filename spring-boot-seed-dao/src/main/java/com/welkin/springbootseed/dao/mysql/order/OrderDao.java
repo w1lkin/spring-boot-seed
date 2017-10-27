@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.dao.mysql.mapper.order;
+package com.welkin.springbootseed.dao.mysql.order;
 
 import com.welkin.springbootseed.model.entity.mysql.order.Order;
 

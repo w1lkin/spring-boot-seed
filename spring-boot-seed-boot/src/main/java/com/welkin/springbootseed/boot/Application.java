@@ -5,6 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
@@ -13,7 +14,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 		includeFilters = {@ComponentScan.Filter(Api.class)}
 )
 @MapperScan(
-		basePackages = {"com.welkin.springbootseed.dao"}
+		basePackages = {"com.welkin.springbootseed.dao.mysql"}
+)
+@EnableMongoRepositories(
+		basePackages = {"com.welkin.springbootseed.dao.mongo"}
 )
 @EnableTransactionManagement
 public class Application {

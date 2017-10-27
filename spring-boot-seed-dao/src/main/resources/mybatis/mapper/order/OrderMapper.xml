@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.welkin.springbootseed.dao.mysql.mapper.order.OrderDao">
+<mapper namespace="com.welkin.springbootseed.dao.mysql.order.OrderDao">
   <resultMap id="BaseResultMap" type="com.welkin.springbootseed.model.entity.mysql.order.Order">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="city_id" jdbcType="INTEGER" property="cityId" />

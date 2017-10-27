@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.welkin.springbootseed.dao.mysql.mapper.order.CustomOrderDao">
+<mapper namespace="com.welkin.springbootseed.dao.mysql.order.CustomOrderDao">
 
     <resultMap id="BaseResultMap" type="com.welkin.springbootseed.model.entity.mysql.order.Order"
-               extends="com.welkin.springbootseed.dao.mysql.mapper.order.OrderDao.BaseResultMap">
+               extends="com.welkin.springbootseed.dao.mysql.order.OrderDao.BaseResultMap">
     </resultMap>
 
     <sql id="Base_Column_List">

@@ -1,7 +1,7 @@
 package com.welkin.springbootseed.service.order.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.welkin.springbootseed.dao.mysql.mapper.order.CustomOrderDao;
+import com.welkin.springbootseed.dao.mysql.order.CustomOrderDao;
 import com.welkin.springbootseed.model.Page;
 import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.model.dto.order.SearchOrderCondition;
@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class OrderServiceImpl implements OrderService {
   private static final Logger logger = LogManager.getLogger(OrderServiceImpl.class);
 
@@ -28,16 +27,19 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
+  @Transactional
   public void save(Order order) {
     orderDao.insertSelective(order);
   }
 
   @Override
+  @Transactional
   public void update(Order order) {
     orderDao.updateByPrimaryKeySelective(order);
   }
 
   @Override
+  @Transactional
   public void remove(Integer orderId) {
     orderDao.removeByOrderId(orderId);
   }
