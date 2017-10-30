@@ -3,6 +3,7 @@
 > 该项目目的是学习spring-boot, 积累技术。
 
 ### 更新日志
+- 2017年10月30日 集成Elasticsearch, 实现CRUD操作
 - 2017年10月27日 集成mongodb, 实现CRUD操作
 - 2017年10月24日 集成swagger, hibernate-validator
 - 2017年9月28日 集成pagehelper, 实现分页

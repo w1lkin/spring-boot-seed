@@ -48,3 +48,9 @@ spring:
   data:
     mongodb:
       uri: mongodb://kk_tepstechfin:kk_tepstechfin123456@test.mongo.apitops.com:37019/tops_tepstechfin
+    elasticsearch:
+      cluster-name: es-test
+      cluster-nodes: logservice2.test.apitops.com:9300,logservice3.test.apitops.com:9300,logservice1.test.apitops.com:9300
+      local: false
+      repositories:
+        enabled: true
