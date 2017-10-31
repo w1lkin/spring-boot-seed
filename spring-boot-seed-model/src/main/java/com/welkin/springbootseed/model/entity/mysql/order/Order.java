@@ -5,9 +5,7 @@ import com.welkin.springbootseed.model.Base;
 import java.io.Serializable;
 import java.util.Date;
 
-/** @author welkin
- * Order
- **/
+/** @author welkin Order */
 public class Order extends Base implements Serializable {
   private static final long serialVersionUID = 1L;
   private Integer id;

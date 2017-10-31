@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.welkin.springbootseed.common.exception.BizException;
 import com.welkin.springbootseed.common.util.BeanUtil;
 import com.welkin.springbootseed.model.Page;
-import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.model.dto.order.SearchOrderCondition;
+import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.service.order.OrderService;
 import com.welkin.springbootseed.web.api.mysql.model.*;
 import io.swagger.annotations.Api;
@@ -21,8 +21,9 @@ import java.util.List;
 
 /**
  * mybatis CRUD
+ *
  * @author welkin
- **/
+ */
 @Path("mysql")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -54,19 +55,19 @@ public class MysqlApi {
   @ApiOperation("搜索订单")
   public SearchOrderResponse search(@BeanParam SearchOrderRequest request) {
     //
-    SearchOrderCondition condition=new SearchOrderCondition();
-    BeanUtil.copyProperties(request,condition);
-    if (request.getEntryBeginTime()!=null){
+    SearchOrderCondition condition = new SearchOrderCondition();
+    BeanUtil.copyProperties(request, condition);
+    if (request.getEntryBeginTime() != null) {
       condition.setEntryBeginTime(request.getEntryBeginTime().getDate());
     }
-    if (request.getEntryEndTime()!=null){
+    if (request.getEntryEndTime() != null) {
       condition.setEntryEndTime(request.getEntryEndTime().getNextDay());
     }
     //
-    Page<Order> page=orderService.findPage(condition);
+    Page<Order> page = orderService.findPage(condition);
     //
-    List<OrderVo> orderVos=BeanUtil.copyList(page.getResults(),OrderVo.class);
-    SearchOrderResponse response = new SearchOrderResponse(page.getTotalCount(),orderVos);
+    List<OrderVo> orderVos = BeanUtil.copyList(page.getResults(), OrderVo.class);
+    SearchOrderResponse response = new SearchOrderResponse(page.getTotalCount(), orderVos);
     return response;
   }
 

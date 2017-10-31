@@ -1,7 +1,7 @@
-package com.welkin.springbootseed.web.api.elasticsearch.model;
+package com.welkin.springbootseed.model.entity.elasticsearch.order;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModelProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.Date;
 
@@ -10,131 +10,130 @@ import java.util.Date;
  *
  * @author welkin
  */
-public class OrderESVo {
+@Document(
+  indexName = "elasticsearch_order_index",
+  type = "growth.fund.order",
+  refreshInterval = "-1"
+)
+public class Order {
 
-  @ApiModelProperty("id")
-  private String id;
+  @Id private String id;
 
-  @ApiModelProperty("订单id")
-  private Integer orderId;
+  /** 订单id */
+  private int orderId;
 
-  @ApiModelProperty("城市id")
+  /** 城市id */
   private Integer cityId;
 
-  @ApiModelProperty("城市名")
+  /** 城市名 */
   private String cityName;
 
-  @ApiModelProperty("订单中心编号")
+  /** 订单中心编号 */
   private Long orderCenterNo;
 
-  @ApiModelProperty("客户id")
+  /** 客户id */
   private Integer customerId;
 
-  @ApiModelProperty("产品id ")
+  /** 产品id */
   private Integer productId;
 
-  @ApiModelProperty("流程实例id")
+  /** 流程实例id */
   private String processInstanceId;
 
-  @ApiModelProperty("订单阶段")
-  private Integer phase;
+  /** 订单阶段 */
+  private int phase = 0;
 
-  @ApiModelProperty("订单阶段")
-  private String phaseName;
+  /** 订单阶段 */
+  private String phaseName = "";
 
-  @ApiModelProperty("订单状态")
-  private Integer status;
+  /** 订单状态 */
+  private int status = 0;
 
-  @ApiModelProperty("订单状态")
-  private String statusName;
+  /** 订单状态 */
+  private String statusName = "";
 
-  @ApiModelProperty("订单是否删除：0未删除 1已删除")
-  private Integer isOrderDeleted;
+  /** 订单是否删除：0未删除 1已删除 */
+  private int isOrderDeleted;
 
-  @ApiModelProperty("订单创建时间")
-  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+  /** 订单创建时间 */
   private Date orderCreateTime;
 
-  @ApiModelProperty("订单更新时间")
-  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+  /** 订单更新时间 */
   private Date orderUpdateTime;
 
-  @ApiModelProperty("订单删除时间")
-  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+  /** 订单删除时间 */
   private Date orderDeleteTime;
 
-  @ApiModelProperty("客户姓名")
+  /** 客户姓名 */
   private String customerName;
 
-  @ApiModelProperty("客户联系电话")
+  /** 客户联系电话 */
   private String customerPhone;
 
-  @ApiModelProperty("客户类型：0个人 1公司")
-  private Integer customerType;
+  /** 客户类型：0个人 1公司 */
+  private int customerType;
 
-  @ApiModelProperty("个人id")
+  /** 个人id */
   private Integer personId;
 
-  @ApiModelProperty("公司id")
+  /** 公司id */
   private Integer companyId;
 
-  @ApiModelProperty("客户状态（1-失效 2-生效）")
-  private Integer customerStatus;
+  /** 客户状态（1-失效 2-生效） */
+  private int customerStatus;
 
-  @ApiModelProperty("客户是否删除(0-未删除 1-已删除)")
-  private Integer customerIsDeleted;
+  /** 客户是否删除(0-未删除 1-已删除) */
+  private int customerIsDeleted;
 
-  @ApiModelProperty("母公司id")
+  /** 母公司id */
   private Integer companyPid;
 
-  @ApiModelProperty("公司所在城市id")
+  /** 公司所在城市id */
   private Integer companyCityId;
 
-  @ApiModelProperty("公司所在城市名")
+  /** 公司所在城市名 */
   private String companyCityName;
 
-  @ApiModelProperty("公司名")
+  /** 公司名 */
   private String companyName;
 
-  @ApiModelProperty("公司联系电话")
+  /** 公司联系电话 */
   private String companyPhone;
 
-  @ApiModelProperty("公司法人")
+  /** 公司法人 */
   private String companyLegalPerson;
 
-  @ApiModelProperty("公司地址")
+  /** 公司地址 */
   private String companyAddress;
 
-  @ApiModelProperty("公司是否删除：0未删除 1已删除")
-  private Integer isCompanyDeleted;
+  /** 公司是否删除：0未删除 1已删除 */
+  private int isCompanyDeleted;
 
-  @ApiModelProperty("资方id")
+  /** 资方id */
   private Integer capitalId;
 
-  @ApiModelProperty("资方名")
+  /** 资方名 */
   private String capitalName;
 
-  @ApiModelProperty("资方电话")
+  /** 资方电话 */
   private String capitalPhone;
 
-  @ApiModelProperty("资方地址")
+  /** 资方地址 */
   private String capitalAddress;
 
-  @ApiModelProperty("资方联系人")
+  /** 资方联系人 */
   private String capitalLinkman;
 
-  @ApiModelProperty("经纪公司id")
+  /** 经纪公司id */
   private Integer brokerCompanyId;
 
-  @ApiModelProperty("经纪公司名")
+  /** 经纪公司名 */
   private String brokerCompanyName;
 
-  @ApiModelProperty("关闭时间")
-  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+  /** 关闭时间 */
   private Date closeTime;
 
-  @ApiModelProperty("操作时间")
-  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+  /** 操作时间 */
   private Date operateTime;
 
   public String getId() {
@@ -145,11 +144,11 @@ public class OrderESVo {
     this.id = id;
   }
 
-  public Integer getOrderId() {
+  public int getOrderId() {
     return orderId;
   }
 
-  public void setOrderId(Integer orderId) {
+  public void setOrderId(int orderId) {
     this.orderId = orderId;
   }
 
@@ -201,11 +200,11 @@ public class OrderESVo {
     this.processInstanceId = processInstanceId;
   }
 
-  public Integer getPhase() {
+  public int getPhase() {
     return phase;
   }
 
-  public void setPhase(Integer phase) {
+  public void setPhase(int phase) {
     this.phase = phase;
   }
 
@@ -217,11 +216,11 @@ public class OrderESVo {
     this.phaseName = phaseName;
   }
 
-  public Integer getStatus() {
+  public int getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(int status) {
     this.status = status;
   }
 
@@ -233,11 +232,11 @@ public class OrderESVo {
     this.statusName = statusName;
   }
 
-  public Integer getIsOrderDeleted() {
+  public int getIsOrderDeleted() {
     return isOrderDeleted;
   }
 
-  public void setIsOrderDeleted(Integer isOrderDeleted) {
+  public void setIsOrderDeleted(int isOrderDeleted) {
     this.isOrderDeleted = isOrderDeleted;
   }
 
@@ -281,11 +280,11 @@ public class OrderESVo {
     this.customerPhone = customerPhone;
   }
 
-  public Integer getCustomerType() {
+  public int getCustomerType() {
     return customerType;
   }
 
-  public void setCustomerType(Integer customerType) {
+  public void setCustomerType(int customerType) {
     this.customerType = customerType;
   }
 
@@ -305,19 +304,19 @@ public class OrderESVo {
     this.companyId = companyId;
   }
 
-  public Integer getCustomerStatus() {
+  public int getCustomerStatus() {
     return customerStatus;
   }
 
-  public void setCustomerStatus(Integer customerStatus) {
+  public void setCustomerStatus(int customerStatus) {
     this.customerStatus = customerStatus;
   }
 
-  public Integer getCustomerIsDeleted() {
+  public int getCustomerIsDeleted() {
     return customerIsDeleted;
   }
 
-  public void setCustomerIsDeleted(Integer customerIsDeleted) {
+  public void setCustomerIsDeleted(int customerIsDeleted) {
     this.customerIsDeleted = customerIsDeleted;
   }
 
@@ -377,11 +376,11 @@ public class OrderESVo {
     this.companyAddress = companyAddress;
   }
 
-  public Integer getIsCompanyDeleted() {
+  public int getIsCompanyDeleted() {
     return isCompanyDeleted;
   }
 
-  public void setIsCompanyDeleted(Integer isCompanyDeleted) {
+  public void setIsCompanyDeleted(int isCompanyDeleted) {
     this.isCompanyDeleted = isCompanyDeleted;
   }
 

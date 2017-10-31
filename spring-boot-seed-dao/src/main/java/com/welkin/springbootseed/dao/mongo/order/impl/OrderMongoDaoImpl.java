@@ -1,7 +1,7 @@
 package com.welkin.springbootseed.dao.mongo.order.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.welkin.springbootseed.dao.mongo.order.IOrderDao;
+import com.welkin.springbootseed.dao.mongo.order.IOrderMongoDao;
 import com.welkin.springbootseed.model.entity.mongo.order.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * mongoTemplate 方式实现
- * GrowthFundInterviewInfoDaoImpl<br>
+ * mongoTemplate 方式实现 OrderMongoDaoImpl<br>
+ *
  * @author welkin
  */
 @Repository
-public class OrderDaoImpl implements IOrderDao {
+public class OrderMongoDaoImpl implements IOrderMongoDao {
 
-  private static final Logger logger = LogManager.getLogger(OrderDaoImpl.class);
+  private static final Logger logger = LogManager.getLogger(OrderMongoDaoImpl.class);
 
   @Autowired private MongoTemplate mongoTemplate;
 
@@ -34,9 +34,7 @@ public class OrderDaoImpl implements IOrderDao {
       result = true;
     } catch (Exception e) {
       logger.warn(
-          "Failed to save order. The order is {}. The exception is ",
-          JSON.toJSONString(order),
-          e);
+          "Failed to save order. The order is {}. The exception is ", JSON.toJSONString(order), e);
     }
     return result;
   }
@@ -77,10 +75,7 @@ public class OrderDaoImpl implements IOrderDao {
       Query query = new Query(criteria);
       order = mongoTemplate.findOne(query, Order.class);
     } catch (Exception e) {
-      logger.warn(
-          "We can't find order by the orderId[{}]. The exception is ",
-          orderId,
-          e);
+      logger.warn("We can't find order by the orderId[{}]. The exception is ", orderId, e);
     }
     return order;
   }

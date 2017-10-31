@@ -3,8 +3,8 @@ package com.welkin.springbootseed.service.order.impl;
 import com.github.pagehelper.PageHelper;
 import com.welkin.springbootseed.dao.mysql.order.CustomOrderDao;
 import com.welkin.springbootseed.model.Page;
-import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.model.dto.order.SearchOrderCondition;
+import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.service.order.OrderService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,9 +46,9 @@ public class OrderServiceImpl implements OrderService {
 
   @Override
   public Page<Order> findPage(SearchOrderCondition condition) {
-    PageHelper.startPage(condition.getPageNo(),condition.getPageSize());
-    List<Order> orders=orderDao.selectByCondition(condition);
-    Page<Order> page=new Page<>(orders);
+    PageHelper.startPage(condition.getPageNo(), condition.getPageSize());
+    List<Order> orders = orderDao.selectByCondition(condition);
+    Page<Order> page = new Page<>(orders);
     return page;
   }
 

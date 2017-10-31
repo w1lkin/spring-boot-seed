@@ -3,8 +3,10 @@ package com.welkin.springbootseed.web.api.mongo;
 import com.welkin.springbootseed.common.exception.BizException;
 import com.welkin.springbootseed.common.util.BeanUtil;
 import com.welkin.springbootseed.model.entity.mongo.order.Order;
-import com.welkin.springbootseed.service.order.OrderServiceMongo;
-import com.welkin.springbootseed.web.api.mongo.model.*;
+import com.welkin.springbootseed.service.order.OrderMongoService;
+import com.welkin.springbootseed.web.api.mongo.model.CreateOrModifyOrderMongoRequest;
+import com.welkin.springbootseed.web.api.mongo.model.CreateOrModifyOrderMongoResponse;
+import com.welkin.springbootseed.web.api.mongo.model.OrderMongoResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
@@ -17,8 +19,9 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * mongo CRUD
+ *
  * @author welkin
- **/
+ */
 @Path("mongo")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -26,14 +29,14 @@ import javax.ws.rs.core.MediaType;
 public class MongoApi {
   private static final Logger logger = LogManager.getLogger(MongoApi.class);
 
-  @Autowired private OrderServiceMongo orderService;
+  @Autowired private OrderMongoService orderService;
 
   @GET
   @Path("/orders/{orderId}")
   @ApiOperation("获取订单")
   public OrderMongoResponse get(@PathParam("orderId") Integer orderId) {
     Order order = orderService.get(orderId);
-    BizException.isNull(order,"订单不存在");
+    BizException.isNull(order, "订单不存在");
     //
     OrderMongoResponse response = new OrderMongoResponse();
     BeanUtil.copyProperties(order, response);
@@ -61,7 +64,7 @@ public class MongoApi {
     BizException.isNull(orderId);
     //
     Order order = orderService.get(orderId);
-    BizException.isNull(order,"订单不存在");
+    BizException.isNull(order, "订单不存在");
     BeanUtil.copyProperties(request, order);
     orderService.update(order);
     //

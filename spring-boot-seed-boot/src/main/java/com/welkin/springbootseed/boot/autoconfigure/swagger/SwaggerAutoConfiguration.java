@@ -16,7 +16,7 @@ import java.beans.PropertyDescriptor;
 /**
  * SwaggerAutoConfiguration
  *
- * @author Gavin Hu
+ * @author welkin
  * @version 2.0.0
  */
 @Configuration
@@ -25,23 +25,21 @@ import java.beans.PropertyDescriptor;
 @EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerAutoConfiguration {
 
-    @Autowired
-    private SwaggerProperties swaggerProperties;
+  @Autowired private SwaggerProperties swaggerProperties;
 
-    @Bean
-    @ConditionalOnMissingBean
-    public Swagger2Feature swagger2Feature() {
-        BeanWrapper swagger2FeatureWrapper = new BeanWrapperImpl(Swagger2Feature.class);
-        BeanWrapper swaggerPropertiesWrapper = new BeanWrapperImpl(swaggerProperties);
-        //
-        for(PropertyDescriptor pd : swaggerPropertiesWrapper.getPropertyDescriptors()) {
-            if(swagger2FeatureWrapper.isWritableProperty(pd.getName())) {
-                Object value = swaggerPropertiesWrapper.getPropertyValue(pd.getName());
-                swagger2FeatureWrapper.setPropertyValue(pd.getName(), value);
-            }
-        }
-        //
-        return (Swagger2Feature) swagger2FeatureWrapper.getWrappedInstance();
+  @Bean
+  @ConditionalOnMissingBean
+  public Swagger2Feature swagger2Feature() {
+    BeanWrapper swagger2FeatureWrapper = new BeanWrapperImpl(Swagger2Feature.class);
+    BeanWrapper swaggerPropertiesWrapper = new BeanWrapperImpl(swaggerProperties);
+    //
+    for (PropertyDescriptor pd : swaggerPropertiesWrapper.getPropertyDescriptors()) {
+      if (swagger2FeatureWrapper.isWritableProperty(pd.getName())) {
+        Object value = swaggerPropertiesWrapper.getPropertyValue(pd.getName());
+        swagger2FeatureWrapper.setPropertyValue(pd.getName(), value);
+      }
     }
-
+    //
+    return (Swagger2Feature) swagger2FeatureWrapper.getWrappedInstance();
+  }
 }

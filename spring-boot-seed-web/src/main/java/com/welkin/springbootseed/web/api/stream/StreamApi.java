@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 
 /**
  * stream API 使用
+ *
  * @author welkin
  */
 @Path("stream")
@@ -44,8 +45,9 @@ public class StreamApi {
     Map<Integer, Order> orderMap =
         orders.stream().collect(Collectors.toMap(Order::getId, Function.identity()));
     Integer[] orderIdsArray = orders.stream().map(Order::getId).toArray(Integer[]::new);
-    String orderIdsString = orders.stream().map(p -> p.getId().toString()).collect(Collectors.joining(",")).toString();
-    String orderIdsString2= StringUtils.join(orderIdsList,",");
+    String orderIdsString =
+        orders.stream().map(p -> p.getId().toString()).collect(Collectors.joining(",")).toString();
+    String orderIdsString2 = StringUtils.join(orderIdsList, ",");
 
     // 流的操作
     //    Intermediate：
@@ -56,11 +58,35 @@ public class StreamApi {
     // noneMatch、 findFirst、 findAny、 iterator
     //    Short-circuiting：
     //    anyMatch、 allMatch、 noneMatch、 findFirst、 findAny、 limit
-    Long amount=orders.stream().filter(p->p.getProductId().equals(1010)).mapToLong(Order::getCustomerId).sum();
-    //reduce
-    Long amount2=orders.stream().filter(p->p.getProductId().equals(1010)).map(Order::getCustomerId).reduce(0,(a,b)->a+b).longValue();
-    Long amount3=orders.stream().filter(p->p.getProductId().equals(1010)).map(Order::getCustomerId).reduce(0,Integer::sum).longValue();
-    Long amount4=orders.stream().filter(p->p.getProductId().equals(1010)).map(Order::getCustomerId).reduce(Integer::sum).get().longValue();
+    Long amount =
+        orders
+            .stream()
+            .filter(p -> p.getProductId().equals(1010))
+            .mapToLong(Order::getCustomerId)
+            .sum();
+    // reduce
+    Long amount2 =
+        orders
+            .stream()
+            .filter(p -> p.getProductId().equals(1010))
+            .map(Order::getCustomerId)
+            .reduce(0, (a, b) -> a + b)
+            .longValue();
+    Long amount3 =
+        orders
+            .stream()
+            .filter(p -> p.getProductId().equals(1010))
+            .map(Order::getCustomerId)
+            .reduce(0, Integer::sum)
+            .longValue();
+    Long amount4 =
+        orders
+            .stream()
+            .filter(p -> p.getProductId().equals(1010))
+            .map(Order::getCustomerId)
+            .reduce(Integer::sum)
+            .get()
+            .longValue();
 
     //
     StreamResponse response = new StreamResponse();

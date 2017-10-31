@@ -1,8 +1,8 @@
 package com.welkin.springbootseed.service.order.impl;
 
-import com.welkin.springbootseed.dao.mongo.order.OrderRepository;
+import com.welkin.springbootseed.dao.mongo.order.OrderMongoRepository;
 import com.welkin.springbootseed.model.entity.mongo.order.Order;
-import com.welkin.springbootseed.service.order.OrderServiceMongo;
+import com.welkin.springbootseed.service.order.OrderMongoService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class OrderServiceMongoImpl implements OrderServiceMongo {
-  private static final Logger logger = LogManager.getLogger(OrderServiceMongoImpl.class);
+public class OrderMongoServiceImpl implements OrderMongoService {
+  private static final Logger logger = LogManager.getLogger(OrderMongoServiceImpl.class);
 
-  @Autowired(required = false)
-  private OrderRepository repository;
+  @Autowired private OrderMongoRepository repository;
 
-  //  @Autowired private IOrderDao repository;
+  //  @Autowired private IOrderMongoDao repository;
 
   @Override
   public Order get(Integer orderId) {
@@ -46,6 +45,5 @@ public class OrderServiceMongoImpl implements OrderServiceMongo {
   @Override
   public List<Order> getList() {
     return repository.findAll();
-    //    return null;
   }
 }

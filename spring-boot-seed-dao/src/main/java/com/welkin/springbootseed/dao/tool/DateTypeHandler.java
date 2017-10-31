@@ -11,6 +11,7 @@ import java.util.Date;
 
 /**
  * 将db中的默认时间转换为空
+ *
  * @author chenyankun @Date 2017/5/21
  */
 @MappedJdbcTypes({JdbcType.TIMESTAMP})

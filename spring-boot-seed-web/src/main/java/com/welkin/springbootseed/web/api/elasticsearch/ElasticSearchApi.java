@@ -2,8 +2,8 @@ package com.welkin.springbootseed.web.api.elasticsearch;
 
 import com.welkin.springbootseed.common.exception.BizException;
 import com.welkin.springbootseed.common.util.BeanUtil;
-import com.welkin.springbootseed.model.entity.index.order.Order;
-import com.welkin.springbootseed.service.order.OrderServiceES;
+import com.welkin.springbootseed.model.entity.elasticsearch.order.Order;
+import com.welkin.springbootseed.service.order.OrderElasticsearchService;
 import com.welkin.springbootseed.web.api.elasticsearch.model.CreateOrModifyOrderESRequest;
 import com.welkin.springbootseed.web.api.elasticsearch.model.CreateOrModifyOrderESResponse;
 import com.welkin.springbootseed.web.api.elasticsearch.model.OrderESResponse;
@@ -29,7 +29,7 @@ import javax.ws.rs.core.MediaType;
 public class ElasticSearchApi {
   private static final Logger logger = LogManager.getLogger(ElasticSearchApi.class);
 
-  @Autowired private OrderServiceES orderService;
+  @Autowired private OrderElasticsearchService orderService;
 
   @GET
   @Path("/orders/{orderId}")

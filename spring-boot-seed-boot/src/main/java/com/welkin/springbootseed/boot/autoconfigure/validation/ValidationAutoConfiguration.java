@@ -19,7 +19,7 @@ import java.io.IOException;
 /**
  * Validation Auto Configuration
  *
- * @author Gavin Hu
+ * @author welkin
  * @version 2.0.0
  */
 @Configuration
@@ -27,33 +27,35 @@ import java.io.IOException;
 @EnableConfigurationProperties(ValidationProperties.class)
 public class ValidationAutoConfiguration {
 
-    @Autowired
-    private ValidationProperties validationProperties;
+  @Autowired private ValidationProperties validationProperties;
 
-    @Bean
-    @ConditionalOnMissingBean(MethodValidationPostProcessor.class)
-    public MethodValidationPostProcessor methodValidationPostProcessor(ValidatorFactory validatorFactory) {
-        MethodValidationPostProcessor methodValidationPostProcessor = new MethodValidationPostProcessor();
-        methodValidationPostProcessor.setValidatorFactory(validatorFactory);
-        //
-        return methodValidationPostProcessor;
+  @Bean
+  @ConditionalOnMissingBean(MethodValidationPostProcessor.class)
+  public MethodValidationPostProcessor methodValidationPostProcessor(
+      ValidatorFactory validatorFactory) {
+    MethodValidationPostProcessor methodValidationPostProcessor =
+        new MethodValidationPostProcessor();
+    methodValidationPostProcessor.setValidatorFactory(validatorFactory);
+    //
+    return methodValidationPostProcessor;
+  }
+
+  @Bean
+  @ConditionalOnMissingBean(LocalValidatorFactoryBean.class)
+  public LocalValidatorFactoryBean localValidatorFactoryBean(
+      ApplicationContext applicationContext) {
+    LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+    localValidatorFactoryBean.setProviderClass(HibernateValidator.class);
+    if (validationProperties.getMappingLocation() != null) {
+      try {
+        Resource[] mappingResources =
+            applicationContext.getResources(validationProperties.getMappingLocation());
+        localValidatorFactoryBean.setMappingLocations(mappingResources);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
-
-    @Bean
-    @ConditionalOnMissingBean(LocalValidatorFactoryBean.class)
-    public LocalValidatorFactoryBean localValidatorFactoryBean(ApplicationContext applicationContext) {
-        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
-        localValidatorFactoryBean.setProviderClass(HibernateValidator.class);
-        if(validationProperties.getMappingLocation()!=null) {
-            try {
-                Resource[] mappingResources = applicationContext.getResources(validationProperties.getMappingLocation());
-                localValidatorFactoryBean.setMappingLocations(mappingResources);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        //
-        return localValidatorFactoryBean;
-    }
-
+    //
+    return localValidatorFactoryBean;
+  }
 }

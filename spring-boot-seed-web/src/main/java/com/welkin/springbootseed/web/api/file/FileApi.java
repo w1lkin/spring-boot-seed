@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * 文件
+ *
  * @author welkin
  */
 @Path("file")
@@ -29,7 +30,5 @@ public class FileApi {
   @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
   @Path("/upload")
   @ApiOperation("upload")
-  public void upload(@Multipart List<Attachment> list) {
-
-  }
+  public void upload(@Multipart List<Attachment> list) {}
 }

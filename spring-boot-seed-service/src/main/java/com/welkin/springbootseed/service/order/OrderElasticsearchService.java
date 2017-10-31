@@ -1,13 +1,9 @@
 package com.welkin.springbootseed.service.order;
 
-import com.welkin.springbootseed.model.Page;
-import com.welkin.springbootseed.model.dto.order.SearchOrderCondition;
-import com.welkin.springbootseed.model.entity.mysql.order.Order;
-
-import java.util.List;
+import com.welkin.springbootseed.model.entity.elasticsearch.order.Order;
 
 /** @author welkin 2017年9月28日16:04:53 */
-public interface OrderService {
+public interface OrderElasticsearchService {
   /**
    * 获取订单
    *
@@ -38,19 +34,4 @@ public interface OrderService {
    * @param orderId
    */
   void remove(Integer orderId);
-
-  /**
-   * 搜索订单
-   *
-   * @param condition
-   * @return
-   */
-  Page<Order> findPage(SearchOrderCondition condition);
-
-  /**
-   * 获取订单列表
-   *
-   * @return
-   */
-  List<Order> getList();
 }

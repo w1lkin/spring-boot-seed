@@ -12,11 +12,12 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * 你好,世界
+ *
  * @author welkin
- **/
+ */
 @Path("")
 @Consumes({MediaType.APPLICATION_JSON})
-@Produces(MediaType.APPLICATION_JSON+ ";charset=utf-8")
+@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 @Api(tags = "你好,世界", description = "你好,世界")
 public class HelloWorldApi {
 
@@ -26,12 +27,12 @@ public class HelloWorldApi {
   @Path("/hello/{name}")
   @ApiOperation("你好,世界")
   public Message say(@PathParam("name") String name) {
-    logger.info("request: "+name);
+    logger.info("request: " + name);
 
     Message message = new Message();
-    message.setMessage("hey "+name);
+    message.setMessage("hey " + name);
 
-    logger.info("response: "+ JSON.toJSONString(message));
+    logger.info("response: " + JSON.toJSONString(message));
     return message;
   }
 
@@ -39,6 +40,6 @@ public class HelloWorldApi {
   @Path("/hello2/{name}")
   @ApiOperation("你好,世界")
   public String say2(@PathParam("name") String name) {
-    return "say "+name;
+    return "say " + name;
   }
 }

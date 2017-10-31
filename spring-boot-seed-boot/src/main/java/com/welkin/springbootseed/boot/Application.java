@@ -15,9 +15,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
   includeFilters = {@ComponentScan.Filter(Api.class)}
 )
 @MapperScan(basePackages = {"com.welkin.springbootseed.dao.mysql"})
-//TODO @EnableMongoRepositories 和 @EnableElasticsearchRepositories 不兼容
+@EnableElasticsearchRepositories(basePackages = {"com.welkin.springbootseed.dao.elasticsearch"})
 @EnableMongoRepositories(basePackages = {"com.welkin.springbootseed.dao.mongo"})
-@EnableElasticsearchRepositories(basePackages = {"com.welkin.springbootseed.dao.index"})
 @EnableTransactionManagement
 public class Application {
   public static void main(String[] args) {
