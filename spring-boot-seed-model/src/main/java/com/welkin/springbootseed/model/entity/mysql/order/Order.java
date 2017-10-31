@@ -5,176 +5,136 @@ import com.welkin.springbootseed.model.Base;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author welkin
- * Order
- */
+/** @author welkin Order */
 public class Order extends Base implements Serializable {
-    private Integer id;
+  private static final long serialVersionUID = 1L;
+  private Integer id;
+  /** 城市ID */
+  private Integer cityId;
+  /** 订单中心编号 */
+  private Long orderCenterNo;
+  /** 订单编号 */
+  private String orderNo;
+  /** tfs_customer.id */
+  private Integer customerId;
+  /** tfs_product.id */
+  private Integer productId;
+  /** 流程实例id */
+  private String processInstanceId;
+  /** 状态：0-未知 */
+  private Integer status;
+  /** 关闭时间 */
+  private Date closeTime;
+  /** 进件时间 */
+  private Date entryTime;
+  /** 导入数据标志 0-否 1-是 */
+  private Byte importFlag;
+  /** 导入数据的自有编号 */
+  private String importNo;
+  /** 资金类型：0-正常融资 1-自有资金 2-临时垫资 */
+  private Byte fundType;
 
-    /**
-     * 城市ID
-     */
-    private Integer cityId;
+  public Integer getId() {
+    return id;
+  }
 
-    /**
-     * 订单中心编号
-     */
-    private Long orderCenterNo;
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    /**
-     * 订单编号
-     */
-    private String orderNo;
+  public Integer getCityId() {
+    return cityId;
+  }
 
-    /**
-     * tfs_customer.id
-     */
-    private Integer customerId;
+  public void setCityId(Integer cityId) {
+    this.cityId = cityId;
+  }
 
-    /**
-     * tfs_product.id
-     */
-    private Integer productId;
+  public Long getOrderCenterNo() {
+    return orderCenterNo;
+  }
 
-    /**
-     * 流程实例id
-     */
-    private String processInstanceId;
+  public void setOrderCenterNo(Long orderCenterNo) {
+    this.orderCenterNo = orderCenterNo;
+  }
 
-    /**
-     * 状态：0-未知
-     */
-    private Integer status;
+  public String getOrderNo() {
+    return orderNo;
+  }
 
-    /**
-     * 关闭时间
-     */
-    private Date closeTime;
+  public void setOrderNo(String orderNo) {
+    this.orderNo = orderNo;
+  }
 
-    /**
-     * 进件时间
-     */
-    private Date entryTime;
+  public Integer getCustomerId() {
+    return customerId;
+  }
 
-    /**
-     * 导入数据标志 0-否 1-是
-     */
-    private Byte importFlag;
+  public void setCustomerId(Integer customerId) {
+    this.customerId = customerId;
+  }
 
-    /**
-     * 导入数据的自有编号
-     */
-    private String importNo;
+  public Integer getProductId() {
+    return productId;
+  }
 
-    /**
-     * 资金类型：0-正常融资 1-自有资金 2-临时垫资
-     */
-    private Byte fundType;
+  public void setProductId(Integer productId) {
+    this.productId = productId;
+  }
 
-    private static final long serialVersionUID = 1L;
+  public String getProcessInstanceId() {
+    return processInstanceId;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public void setProcessInstanceId(String processInstanceId) {
+    this.processInstanceId = processInstanceId;
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public Integer getStatus() {
+    return status;
+  }
 
-    public Integer getCityId() {
-        return cityId;
-    }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 
-    public void setCityId(Integer cityId) {
-        this.cityId = cityId;
-    }
+  public Date getCloseTime() {
+    return closeTime;
+  }
 
-    public Long getOrderCenterNo() {
-        return orderCenterNo;
-    }
+  public void setCloseTime(Date closeTime) {
+    this.closeTime = closeTime;
+  }
 
-    public void setOrderCenterNo(Long orderCenterNo) {
-        this.orderCenterNo = orderCenterNo;
-    }
+  public Date getEntryTime() {
+    return entryTime;
+  }
 
-    public String getOrderNo() {
-        return orderNo;
-    }
+  public void setEntryTime(Date entryTime) {
+    this.entryTime = entryTime;
+  }
 
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
+  public Byte getImportFlag() {
+    return importFlag;
+  }
 
-    public Integer getCustomerId() {
-        return customerId;
-    }
+  public void setImportFlag(Byte importFlag) {
+    this.importFlag = importFlag;
+  }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
+  public String getImportNo() {
+    return importNo;
+  }
 
-    public Integer getProductId() {
-        return productId;
-    }
+  public void setImportNo(String importNo) {
+    this.importNo = importNo;
+  }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
+  public Byte getFundType() {
+    return fundType;
+  }
 
-    public String getProcessInstanceId() {
-        return processInstanceId;
-    }
-
-    public void setProcessInstanceId(String processInstanceId) {
-        this.processInstanceId = processInstanceId;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Date getCloseTime() {
-        return closeTime;
-    }
-
-    public void setCloseTime(Date closeTime) {
-        this.closeTime = closeTime;
-    }
-
-    public Date getEntryTime() {
-        return entryTime;
-    }
-
-    public void setEntryTime(Date entryTime) {
-        this.entryTime = entryTime;
-    }
-
-    public Byte getImportFlag() {
-        return importFlag;
-    }
-
-    public void setImportFlag(Byte importFlag) {
-        this.importFlag = importFlag;
-    }
-
-    public String getImportNo() {
-        return importNo;
-    }
-
-    public void setImportNo(String importNo) {
-        this.importNo = importNo;
-    }
-
-    public Byte getFundType() {
-        return fundType;
-    }
-
-    public void setFundType(Byte fundType) {
-        this.fundType = fundType;
-    }
+  public void setFundType(Byte fundType) {
+    this.fundType = fundType;
+  }
 }
