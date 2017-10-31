@@ -54,3 +54,11 @@ spring:
       local: false
       repositories:
         enabled: true
+  redis:
+    host: 192.168.100.19
+    port: 6379
+    password: tops001
+    database: 7
+    pool:
+      max-idle: 8
+      max-active: 8
