@@ -28,7 +28,8 @@ import javax.ws.rs.core.MediaType;
 public class ElasticSearchApi {
   private static final Logger logger = LogManager.getLogger(ElasticSearchApi.class);
 
-  @Autowired private OrderServiceES orderService;
+  @Autowired
+  private OrderServiceES orderService;
 
   @GET
   @Path("/orders/{orderId}")
