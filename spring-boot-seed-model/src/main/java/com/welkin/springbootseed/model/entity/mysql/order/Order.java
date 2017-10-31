@@ -6,7 +6,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author 
+ * @author welkin
+ * Order
  */
 public class Order extends Base implements Serializable {
     private Integer id;

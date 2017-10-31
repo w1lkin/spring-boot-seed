@@ -4,9 +4,9 @@ import com.welkin.springbootseed.common.exception.BizException;
 import com.welkin.springbootseed.common.util.BeanUtil;
 import com.welkin.springbootseed.model.entity.index.order.Order;
 import com.welkin.springbootseed.service.order.OrderServiceES;
-import com.welkin.springbootseed.web.api.elasticsearch.model.OrderESResponse;
 import com.welkin.springbootseed.web.api.elasticsearch.model.CreateOrModifyOrderESRequest;
 import com.welkin.springbootseed.web.api.elasticsearch.model.CreateOrModifyOrderESResponse;
+import com.welkin.springbootseed.web.api.elasticsearch.model.OrderESResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
@@ -19,8 +19,9 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * elasticsearch CRUD
+ *
  * @author welkin
- **/
+ */
 @Path("elasticsearch")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -28,15 +29,14 @@ import javax.ws.rs.core.MediaType;
 public class ElasticSearchApi {
   private static final Logger logger = LogManager.getLogger(ElasticSearchApi.class);
 
-  @Autowired
-  private OrderServiceES orderService;
+  @Autowired private OrderServiceES orderService;
 
   @GET
   @Path("/orders/{orderId}")
   @ApiOperation("获取订单")
   public OrderESResponse get(@PathParam("orderId") Integer orderId) {
     Order order = orderService.get(orderId);
-    BizException.isNull(order,"订单不存在");
+    BizException.isNull(order, "订单不存在");
     //
     OrderESResponse response = new OrderESResponse();
     BeanUtil.copyProperties(order, response);
@@ -64,7 +64,7 @@ public class ElasticSearchApi {
     BizException.isNull(orderId);
     //
     Order order = orderService.get(orderId);
-    BizException.isNull(order,"订单不存在");
+    BizException.isNull(order, "订单不存在");
     BeanUtil.copyProperties(request, order);
     orderService.update(order);
     //
