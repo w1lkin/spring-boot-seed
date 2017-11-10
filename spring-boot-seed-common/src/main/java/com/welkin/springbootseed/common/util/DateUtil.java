@@ -83,19 +83,27 @@ public class DateUtil {
     return calendar.getTime();
   }
 
-  public static Date addDay(Date d, int dayNum) {
+  public static Date addDays(Date d, int amount) {
     Objects.requireNonNull(d);
     Calendar cld = Calendar.getInstance();
     cld.setTime(d);
-    cld.add(Calendar.DATE, dayNum);
+    cld.add(Calendar.DATE, amount);
     return cld.getTime();
   }
 
-  public static Date addMinute(Date d, int minute) {
+  public static Date addMinutes(Date d, int amount) {
     Objects.requireNonNull(d);
     Calendar cld = Calendar.getInstance();
     cld.setTime(d);
-    cld.add(Calendar.MINUTE, minute);
+    cld.add(Calendar.MINUTE, amount);
+    return cld.getTime();
+  }
+
+  public static Date addSeconds(Date d, int amount) {
+    Objects.requireNonNull(d);
+    Calendar cld = Calendar.getInstance();
+    cld.setTime(d);
+    cld.add(Calendar.SECOND, amount);
     return cld.getTime();
   }
 
@@ -202,7 +210,7 @@ public class DateUtil {
    * @return
    */
   public static Date getLastWeekMonday(Date date) {
-    Date a = DateUtil.addDay(date, -1);
+    Date a = DateUtil.addDays(date, -1);
     Calendar cal = Calendar.getInstance();
     cal.setTime(a);
     cal.add(Calendar.WEEK_OF_YEAR, -1); // 一周
@@ -217,7 +225,7 @@ public class DateUtil {
    * @return
    */
   public static Date getLastWeekSunday(Date date) {
-    Date a = DateUtil.addDay(date, -1);
+    Date a = DateUtil.addDays(date, -1);
     Calendar cal = Calendar.getInstance();
     cal.setTime(a);
     cal.set(Calendar.DAY_OF_WEEK, 1);

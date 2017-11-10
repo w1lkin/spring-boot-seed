@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
-public class OrderVo implements Serializable {
+public class OrderVO implements Serializable {
   @ApiModelProperty("id")
   private Integer id;
 

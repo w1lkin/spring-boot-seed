@@ -66,8 +66,8 @@ public class MysqlApi {
     //
     Page<Order> page = orderService.findPage(condition);
     //
-    List<OrderVo> orderVos = BeanUtil.copyList(page.getResults(), OrderVo.class);
-    SearchOrderResponse response = new SearchOrderResponse(page.getTotalCount(), orderVos);
+    List<OrderVO> orderVOS = BeanUtil.copyList(page.getResults(), OrderVO.class);
+    SearchOrderResponse response = new SearchOrderResponse(page.getTotalCount(), orderVOS);
     return response;
   }
 

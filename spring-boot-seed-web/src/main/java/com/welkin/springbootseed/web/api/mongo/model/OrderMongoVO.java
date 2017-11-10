@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author welkin
  */
-public class OrderMongoVo {
+public class OrderMongoVO {
 
   @ApiModelProperty("订单id")
   private Integer orderId = 0;

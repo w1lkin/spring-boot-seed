@@ -4,8 +4,8 @@ import com.welkin.springbootseed.web.api.PageResponse;
 
 import java.util.List;
 
-public class SearchOrderResponse extends PageResponse<OrderVo> {
-  public SearchOrderResponse(Long totalCount, List<OrderVo> results) {
+public class SearchOrderResponse extends PageResponse<OrderVO> {
+  public SearchOrderResponse(Long totalCount, List<OrderVO> results) {
     super(totalCount, results);
   }
 }

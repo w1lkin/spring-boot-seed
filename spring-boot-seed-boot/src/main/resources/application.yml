@@ -23,6 +23,17 @@ mybatis:
   typeHandlersPackage: com.welkin.springbootseed.dao.tool.typeHandler
   config-location: classpath:/mybatis-config.xml
 
+aliyun:
+  oss:
+    endpoint: https://oss-cn-hangzhou.aliyuncs.com
+    access-key-id: LTAIMFFh2o50OE5l
+    secret-access-key: C2sjeaPxO7AB9Ot1icajqCk6FPhqQd
+    bucketName: top-bops
+    folder: BOPS/Dev
+
+file.upload.domain.url: http://imgapi.apitops.com/
+file.expire.minute: 15
+
 spring:
   datasource:
     name: '开发环境数据库'

@@ -27,7 +27,7 @@ public class DateParameter implements Serializable {
     if (Objects.isNull(date)) {
       return null;
     }
-    return DateUtil.addDay(date, 1);
+    return DateUtil.addDays(date, 1);
   }
 
   public DateParameter(Date date) {
