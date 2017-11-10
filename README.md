@@ -15,7 +15,7 @@
 - 2017年9月14日 基础框架搭建(基于spring-boot), 集成cxf, jackson等
 
 ### 技术栈
-![java web开发技术栈](https://thumbnail10.baidupcs.com/thumbnail/89432964c5aa452d4ef59af9c0e36379?fid=3440443774-250528-1103019712154757&time=1510196400&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-czzwzSDvcI1v7g08pk8uGLBODsg%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=7247576729958913066&dp-callid=0&size=c1536_u864&quality=90&vuk=-&ft=video)
+![java web开发技术栈](https://raw.githubusercontent.com/w1lkin/img/master/spring-boot-seed/java-web%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88.png)
 
 ### 项目结构说明
 > 参考三层架构
