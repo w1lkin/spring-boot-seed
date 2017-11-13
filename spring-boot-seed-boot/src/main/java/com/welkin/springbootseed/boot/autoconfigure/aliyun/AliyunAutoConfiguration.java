@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Aliyun Auto Configuration
  *
- * @author Gavin Hu
+ * @author welkin
  * @version 2.0.0
  */
 @Configuration

@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 阿里云 OSS 属性
  *
- * @author Gavin Hu
+ * @author welkin
  * @version 1.0.0
  */
 @ConfigurationProperties(prefix = AliyunOssProperties.ALIYUN_OSS_PREFIX)

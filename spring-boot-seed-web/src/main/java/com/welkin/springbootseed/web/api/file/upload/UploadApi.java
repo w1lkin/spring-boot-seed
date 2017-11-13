@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.web.api.file;
+package com.welkin.springbootseed.web.api.file.upload;
 
 import com.welkin.springbootseed.common.ApiResponseCode;
 import com.welkin.springbootseed.common.exception.BizException;
@@ -7,7 +7,8 @@ import com.welkin.springbootseed.common.util.StringUtil;
 import com.welkin.springbootseed.model.dto.file.FileUploadParam;
 import com.welkin.springbootseed.model.dto.file.UploadDTO;
 import com.welkin.springbootseed.service.common.FileService;
-import com.welkin.springbootseed.web.api.file.model.UploadVO;
+
+import com.welkin.springbootseed.web.api.file.upload.model.UploadVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -30,15 +31,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 文件
+ * 文件上传
  *
  * @author welkin
  */
 @Path("files")
-@Api(tags = "文件", description = "文件")
-public class FileApi {
+@Api(tags = "文件上传", description = "文件上传")
+public class UploadApi {
 
-  private static final Logger logger = LogManager.getLogger(FileApi.class);
+  private static final Logger logger = LogManager.getLogger(UploadApi.class);
 
   @Autowired private FileService fileService;
 

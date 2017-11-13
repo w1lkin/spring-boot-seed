@@ -25,6 +25,7 @@
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.6.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jul-to-slf4j:1.7.21" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:20.0" level="project" />
     <orderEntry type="module" module-name="spring-boot-seed-dao" />
     <orderEntry type="module" module-name="spring-boot-seed-model" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:4.1.6" level="project" />
@@ -62,7 +63,6 @@
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-spatial:5.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-spatial3d:5.5.2" level="project" />
     <orderEntry type="library" name="Maven: com.spatial4j:spatial4j:0.5" level="project" />
-    <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
     <orderEntry type="library" name="Maven: org.elasticsearch:securesm:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.carrotsearch:hppc:0.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.joda:joda-convert:1.2" level="project" />
