@@ -4,7 +4,10 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-/** 加减乘除工具类 */
+/**
+ * 计算工具类
+ * @author welkin
+ */
 public class Calculator {
 
   private BigDecimal value;

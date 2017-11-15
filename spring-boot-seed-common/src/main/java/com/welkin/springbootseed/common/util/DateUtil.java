@@ -14,7 +14,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
-/** @author welkin 2017年9月28日15:59:16 */
+/**
+ * 时间工具类
+ * @author welkin
+ */
 public class DateUtil {
 
   /**

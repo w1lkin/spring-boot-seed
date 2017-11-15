@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.service.common.impl;
+package com.welkin.springbootseed.service.file.common.impl;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSClient;
@@ -8,7 +8,7 @@ import com.welkin.springbootseed.common.exception.BizException;
 import com.welkin.springbootseed.common.util.DateUtil;
 import com.welkin.springbootseed.model.dto.file.FileUploadParam;
 import com.welkin.springbootseed.model.dto.file.UploadDTO;
-import com.welkin.springbootseed.service.common.FileService;
+import com.welkin.springbootseed.service.file.common.FileService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

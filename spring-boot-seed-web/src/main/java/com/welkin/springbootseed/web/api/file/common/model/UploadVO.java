@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.web.api.file.upload.model;
+package com.welkin.springbootseed.web.api.file.common.model;
 
 import io.swagger.annotations.ApiModelProperty;
 

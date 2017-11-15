@@ -34,6 +34,12 @@ aliyun:
 file.upload.domain.url: http://imgapi.apitops.com/
 file.expire.minute: 15
 
+template:
+  enabled: true
+  path: classpath*:/templates/jxls/defaulttheme/**/*.xlsx
+  function-classes:
+    jxlsUtil: com.welkin.springbootseed.common.util.JxlsUtil
+
 spring:
   datasource:
     name: '开发环境数据库'

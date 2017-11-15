@@ -17,6 +17,12 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.welkin</groupId>
+            <artifactId>spring-boot-seed-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>

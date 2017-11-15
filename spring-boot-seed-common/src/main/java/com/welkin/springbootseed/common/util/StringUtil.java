@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/** @author welkin */
+/**
+ * 字符串工具类
+ * @author welkin
+ */
 public class StringUtil {
 
   private static final String EMPTY = "";

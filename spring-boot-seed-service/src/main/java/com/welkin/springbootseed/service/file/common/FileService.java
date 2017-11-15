@@ -1,4 +1,4 @@
-package com.welkin.springbootseed.service.common;
+package com.welkin.springbootseed.service.file.common;
 
 import com.welkin.springbootseed.model.dto.file.FileUploadParam;
 import com.welkin.springbootseed.model.dto.file.UploadDTO;

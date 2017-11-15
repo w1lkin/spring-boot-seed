@@ -56,6 +56,9 @@
         <aliyun.oss.version>2.8.1</aliyun.oss.version>
 
         <google.guava.version>20.0</google.guava.version>
+
+        <jxls.version>2.4.1</jxls.version>
+        <jxls.poi.version>1.0.12</jxls.poi.version>
     </properties>
 
     <dependencyManagement>
@@ -183,6 +186,24 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${google.guava.version}</version>
+            </dependency>
+
+            <!-- JXLS BOM -->
+            <dependency>
+                <groupId>org.jxls</groupId>
+                <artifactId>jxls</artifactId>
+                <version>${jxls.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jxls</groupId>
+                <artifactId>jxls-poi</artifactId>
+                <version>${jxls.poi.version}</version>
             </dependency>
 
         </dependencies>

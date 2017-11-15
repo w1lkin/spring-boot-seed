@@ -8,6 +8,11 @@ import org.springframework.beans.PropertyAccessorFactory;
 import java.beans.PropertyDescriptor;
 import java.util.*;
 
+/**
+ * Bean工具类
+ *
+ * @author welkin
+ */
 public abstract class BeanUtil {
 
   public static Object copyProperties(Object source, Object target, String... ignoreProperties) {
