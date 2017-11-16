@@ -11,7 +11,7 @@ import java.io.*;
  * @author welkin
  */
 public class FileUtil {
-    private static final Logger logger = LogManager.getLogger(FileUtil.class);
+  private static final Logger logger = LogManager.getLogger(FileUtil.class);
   /**
    * 读文件到流
    *
@@ -40,6 +40,32 @@ public class FileUtil {
       }
     } catch (IOException e) {
       e.printStackTrace();
+    }
+  }
+
+  /**
+   * 写文件
+   *
+   * @param file
+   * @param content
+   */
+  public static void write(File file, String content) throws IOException {
+    BufferedWriter bufferedWriter = null;
+    FileWriter fileWriter = null;
+    try {
+      fileWriter = new FileWriter(file);
+      bufferedWriter = new BufferedWriter(fileWriter);
+      bufferedWriter.write(content);
+      bufferedWriter.newLine();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      if (bufferedWriter != null) {
+        bufferedWriter.close();
+      }
+      if (fileWriter != null) {
+        fileWriter.close();
+      }
     }
   }
 }

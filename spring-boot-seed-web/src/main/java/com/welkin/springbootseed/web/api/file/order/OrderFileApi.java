@@ -6,6 +6,7 @@ import com.welkin.springbootseed.common.template.TemplateEngine;
 import com.welkin.springbootseed.common.util.BeanUtil;
 import com.welkin.springbootseed.common.util.DateUtil;
 import com.welkin.springbootseed.common.util.FileUtil;
+import com.welkin.springbootseed.common.util.ZipUtil;
 import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.model.template.jxls.TOrder;
 import com.welkin.springbootseed.service.order.OrderService;
@@ -29,6 +30,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipOutputStream;
 
 /**
  * 订单文件服务
@@ -47,9 +49,74 @@ public class OrderFileApi {
   @Autowired private TemplateEngine templateEngine;
 
   @GET
-  @Path("/{id}/zip")
+  @Path("/zip")
   @ApiOperation("下载订单信息zip")
-  public Response downloadOrderZip(@PathParam("id") Integer id) {
+  public Response downloadOrderZip() {
+    List<Order> orders = orderService.getList();
+    if (CollectionUtils.isEmpty(orders)) {
+      BizException.fail(ApiResponseCode.DATA_NOT_EXIST, "订单不存在");
+    }
+    //
+    try {
+      //
+      String templateName = "order_details";
+      File ordersTempFile = File.createTempFile("orders", ".xlsx");
+      FileOutputStream fileOutputStream = new FileOutputStream(ordersTempFile.getPath());
+      List<TOrder> tOrders = BeanUtil.copyList(orders, TOrder.class);
+      Map context = new HashMap();
+      context.put("orders", tOrders);
+      try {
+        templateEngine.process(templateName, context, fileOutputStream);
+      } finally {
+        if (fileOutputStream != null) {
+          fileOutputStream.close();
+        }
+      }
+      //
+      Map<String, String> attachmentsMap = new HashMap<>();
+      attachmentsMap.put(
+          "柴犬宝宝/1.jpeg",
+          "https://raw.githubusercontent.com/w1lkin/img/master/%E6%9F%B4%E7%8A%AC%E5%AE%9D%E5%AE%9D.jpeg");
+      attachmentsMap.put(
+          "柴犬宝宝/2.jpeg",
+          "https://raw.githubusercontent.com/w1lkin/img/master/%E6%9F%B4%E7%8A%AC%E5%AE%9D%E5%AE%9D.jpeg");
+      //
+      File txtTempFile = File.createTempFile("柴犬宝宝", ".txt");
+      FileUtil.write(txtTempFile, "大家好,我是柴犬宝宝!");
+      //
+      StreamingOutput streamingOutput =
+          new StreamingOutput() {
+            @Override
+            public void write(OutputStream output) throws IOException, WebApplicationException {
+              ZipOutputStream zipOutputStream = null;
+              try {
+                zipOutputStream = new ZipOutputStream(output);
+                ZipUtil.zip(ordersTempFile, "订单详情.xlsx", zipOutputStream);
+                ZipUtil.zip(attachmentsMap, zipOutputStream);
+                ZipUtil.zip(txtTempFile, "柴犬宝宝.txt", zipOutputStream);
+              } finally {
+                if (zipOutputStream != null) {
+                  zipOutputStream.close();
+                }
+                if (ordersTempFile.exists()) {
+                  ordersTempFile.delete();
+                }
+                if (txtTempFile.exists()) {
+                  txtTempFile.delete();
+                }
+              }
+            }
+          };
+      //
+      String filename = URLEncoder.encode("订单材料", "UTF-8");
+      return Response.ok(streamingOutput, "application/zip")
+          .header("Content-Disposition", "attachment; filename=" + filename + ".zip")
+          .build();
+
+    } catch (Exception e) {
+      BizException.fail(ApiResponseCode.UN_KNONW_ERROR, e.getMessage());
+      logger.error("下载订单信息zip失败: " + e.getMessage());
+    }
     return null;
   }
 
@@ -65,14 +132,16 @@ public class OrderFileApi {
       //
       String templateName = "order_details";
       File tempFile = File.createTempFile("orders", ".xlsx");
-      OutputStream outputStream = new FileOutputStream(tempFile.getPath());
+      FileOutputStream fileOutputStream = new FileOutputStream(tempFile.getPath());
       List<TOrder> tOrders = BeanUtil.copyList(orders, TOrder.class);
       Map context = new HashMap();
       context.put("orders", tOrders);
       try {
-        templateEngine.process(templateName, context, outputStream);
+        templateEngine.process(templateName, context, fileOutputStream);
       } finally {
-        outputStream.close();
+        if (fileOutputStream != null) {
+          fileOutputStream.close();
+        }
       }
       //
       StreamingOutput streamingOutput =
@@ -88,7 +157,7 @@ public class OrderFileApi {
               }
             }
           };
-
+      //
       String filename = URLEncoder.encode("订单详情" + DateUtil.getChineseDateStr(new Date()), "UTF-8");
       return Response.ok(streamingOutput, "application/msexcel")
           .header("Content-Disposition", "attachment; filename=" + filename + ".xlsx")
