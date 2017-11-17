@@ -35,3 +35,6 @@ generatorConfig.xml
 .DS_Store
 Thumbs.db
 elasticsearch-import-script
+
+# custom ignore
+*.yml
