@@ -24,10 +24,7 @@ public class Main {
             "src\\main\\resources");
     //
     DatabaseConfig databaseConfig =
-        new DatabaseConfig(
-            "jdbc:mysql://dev.mysql.apitops.com:4308/tops_finance?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull",
-            "finance_dev",
-            "mFpUowzjKJFfw53qStUx9WUNJWZPh2");
+        new DatabaseConfig("","","");
     //
     List<Table> list = new ArrayList<>();
     list.add(new Table("tfs_risk_person_info_history", "RiskPersonInfoHistory"));
