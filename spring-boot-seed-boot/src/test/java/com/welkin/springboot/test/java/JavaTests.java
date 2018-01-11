@@ -37,4 +37,14 @@ public class JavaTests extends BaseTests {
         System.out.println("linkedHashMap:" + JSON.toJSONString(linkedHashMap)+" hashMap:"+JSON.toJSONString(hashMap)+" hashtable:"+JSON.toJSONString(hashtable)+" treeMap:"+JSON.toJSONString(treeMap));
     }
 
+    @Test
+    public void stringTest(){
+        String a="1234";
+        String b="1234";
+        String c = new String("1234");
+        System.out.println(a==b);//true
+        System.out.println(a==c);//false
+        System.out.println(a.equals(c));//true
+    }
+
 }

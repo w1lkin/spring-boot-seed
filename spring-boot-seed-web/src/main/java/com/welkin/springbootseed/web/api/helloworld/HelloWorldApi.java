@@ -2,6 +2,8 @@ package com.welkin.springbootseed.web.api.helloworld;
 
 import com.alibaba.fastjson.JSON;
 import com.welkin.springbootseed.web.api.helloworld.model.Message;
+import com.welkin.springbootseed.web.filter.FilterTest;
+import com.welkin.springbootseed.web.filter.InterceptorTest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
@@ -26,7 +28,11 @@ public class HelloWorldApi {
   @GET
   @Path("/hello/{name}")
   @ApiOperation("你好,世界")
+  @FilterTest
+  @InterceptorTest
   public Message say(@PathParam("name") String name) {
+    //
+    logger.info("say: 3");
     logger.info("request: " + name);
 
     Message message = new Message();
