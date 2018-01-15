@@ -6,7 +6,11 @@ import com.welkin.springbootseed.model.entity.mysql.order.Order;
 
 import java.util.List;
 
-/** @author welkin 2017年9月28日16:04:53 */
+/**
+ * 订单服务 接口
+ *
+ * @author welkin
+ */
 public interface OrderService {
   /**
    * 获取订单

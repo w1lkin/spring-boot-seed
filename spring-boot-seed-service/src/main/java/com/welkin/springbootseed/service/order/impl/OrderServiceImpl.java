@@ -5,6 +5,7 @@ import com.welkin.springbootseed.dao.mysql.order.CustomOrderDao;
 import com.welkin.springbootseed.model.Page;
 import com.welkin.springbootseed.model.dto.order.SearchOrderCondition;
 import com.welkin.springbootseed.model.entity.mysql.order.Order;
+import com.welkin.springbootseed.service.annotation.AnnotationTest;
 import com.welkin.springbootseed.service.order.OrderService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * 订单服务接口实现
+ *
+ * @author welkin
+ */
 @Service
 public class OrderServiceImpl implements OrderService {
   private static final Logger logger = LogManager.getLogger(OrderServiceImpl.class);
@@ -21,6 +27,7 @@ public class OrderServiceImpl implements OrderService {
   @Autowired private CustomOrderDao orderDao;
 
   @Override
+  @AnnotationTest(name = "welkin")
   public Order get(Integer orderId) {
     logger.info("orderId: " + orderId);
     return orderDao.selectByPrimaryKey(orderId);

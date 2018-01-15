@@ -1,6 +1,5 @@
 package com.welkin.springboot.test.order;
 
-import com.alibaba.fastjson.JSON;
 import com.welkin.springboot.test.BaseTests;
 import com.welkin.springbootseed.model.entity.mysql.order.Order;
 import com.welkin.springbootseed.service.order.OrderService;
@@ -19,7 +18,6 @@ public class OrderTests extends BaseTests {
   @Test
   public void getTest() {
     Order order = orderService.get(1000);
-    System.out.println(JSON.toJSONString(order));
     Assert.assertTrue(order != null);
   }
 

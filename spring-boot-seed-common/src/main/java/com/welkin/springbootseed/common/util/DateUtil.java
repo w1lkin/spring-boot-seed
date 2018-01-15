@@ -20,6 +20,11 @@ import java.util.Objects;
  */
 public class DateUtil {
 
+  public static String now(){
+    DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    return format.format(new Date());
+  }
+
   /**
    * * 将d转换成中国日期格式,如2016-1-22转成2016年1月22日
    *
