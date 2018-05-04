@@ -26,7 +26,7 @@ public class AnnotationTestAspect {
   public void testPointcut() {}
 
   /**
-   * 前置通知：在连接点执行前的通知，但不能阻止连接点前的执行（除非它抛出一个异常）
+   * 前置增强：在连接点执行前的增强，但不能阻止连接点前的执行（除非它抛出一个异常）
    *
    * @param point
    * @param annotationTest
@@ -55,26 +55,26 @@ public class AnnotationTestAspect {
         "===============================beforeAdvice=======================================");
   }
 
-  /** 返回后通知：在连接点正常执行完后执行的通知 */
+  /** 返回后增强：在连接点正常执行完后执行的增强 */
   @AfterReturning("testPointcut()")
   public void afterReturningAdvice() {
     logger.info("LoggerHandlerAop.afterReturningAdvice...time:" + DateUtil.now());
   }
 
-  /** 抛出异常后通知：在连接节点抛出异常退出时执行的通知 */
+  /** 抛出异常后增强：在连接节点抛出异常退出时执行的增强 */
   @AfterThrowing("testPointcut()")
   public void afterThrowingAdvice() {
     logger.info("LoggerHandlerAop.afterThrowingAdvice...time:" + DateUtil.now());
   }
 
-  /** 后置通知：当某连接节点退出的时候执行的通知（不论是正常返回还是异常退出） */
+  /** 后置增强：当某连接节点退出的时候执行的增强（不论是正常返回还是异常退出） */
   @After("testPointcut()")
   public void afterFinallyAdvice() {
     logger.info("LoggerHandlerAop.afterFinallyAdvice...time:" + DateUtil.now());
   }
 
   /**
-   * 环绕通知：包围一个连接点（join point）的通知
+   * 环绕增强：包围一个连接点（join point）的增强
    *
    * @param pjp
    * @return
